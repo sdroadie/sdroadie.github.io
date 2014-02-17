@@ -1,5 +1,8 @@
+/* Formatting */
+
 html, body {
     height: 100%;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
 .section {
@@ -26,8 +29,18 @@ html, body {
     text-align: center;
 }
 
+.splash {
+    color: #D33683;
+}
+
 #face {
     width: 50%;
     height: auto;
     border-radius: 50%;
+}
+
+/* Colors */
+html, body {
+    background: #073542;
+    color: #EFE8D5;
 }
