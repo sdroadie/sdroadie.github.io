@@ -8,6 +8,10 @@ html, body {
     text-align: center;
 }
 
+.unstyled {
+    list-style: none;
+}
+
 #face {
     width: 15%;
     height: auto;
