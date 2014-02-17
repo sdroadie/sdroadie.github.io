@@ -1,11 +1,8 @@
 ---
-layout: default
-title: Simple Photography Site
-description: the first thing I ever made for someone else.
+layout: post
+title: My First Contract
 category: web
 ---
-
-# My First Venture into Web Development
 
 So, a few months ago, I built a website for a family friend. Word got around
 that I knew a thing or two about building websites, so I obliged. I wasn't
