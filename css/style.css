@@ -13,7 +13,7 @@ html, body {
 
 .section.post {
     text-align: left;
-    width: 800px;
+    max-width: 800px;
     margin: auto;
 }
 
@@ -39,7 +39,20 @@ html, body {
     border-radius: 50%;
 }
 
+/* Media queries */
+
+@media screen and (max-device-width: 480px) {
+    .inner {
+        width: 80%;
+    }
+    
+    #face {
+        width: 100%;
+    }
+}
+
 /* Colors */
+
 html, body {
     background: #073542;
     color: #EFE8D5;
