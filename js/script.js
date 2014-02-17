@@ -4,3 +4,9 @@ $('a').click(function() {
     }, 500);
     return false;
 });
+
+var repaint = $(".section");
+
+$(window).resize(function() {
+    repaint.css("z-index", 1);
+});

@@ -8,12 +8,25 @@ html, body {
     text-align: center;
 }
 
-.unstyled {
-    list-style: none;
+.section.post {
+    text-align: left;
+    width: 800px;
+    margin: auto;
+}
+
+.section.post:last-child {
+    padding-bottom: 5%;
+}
+    
+.inner {
+    width: 50%;
+    height: 50%;
+    margin: auto;
+    padding-top: 20%;
 }
 
 #face {
-    width: 15%;
+    width: 50%;
     height: auto;
     border-radius: 50%;
 }

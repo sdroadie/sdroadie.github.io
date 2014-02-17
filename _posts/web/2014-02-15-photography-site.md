@@ -3,6 +3,7 @@ layout: post
 title: My First Contract
 category: web
 ---
+# My First Contract
 
 So, a few months ago, I built a website for a family friend. Word got around
 that I knew a thing or two about building websites, so I obliged. I wasn't
