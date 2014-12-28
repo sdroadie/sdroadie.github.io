@@ -1,5 +1,5 @@
 # Site settings
-title: sdroadie.github.io
+title: Jeremy Neal
 email: jneal1992@gmail.com
 description: "Homepage of Jeremy Neal. I make software. I'd like to get paid for it."
 
@@ -31,7 +31,7 @@ address:
   - line: Severn, MD 21144
   
 # Credits content
-credits: 'Freelance is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.'
+credits: 'This site is powered by <a href="http://jekyllrb.com">Jekyll</a>, using the awesome <a href="http://jeromelachaud.github.io/freelancer-theme/">Freelancer</a> theme.'
 
 # Build settings
 markdown: kramdown
