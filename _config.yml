@@ -19,7 +19,8 @@ paginate:            5
 # About/contact
 author:
   name:              Jeremy Neal
-  url:               https://twitter.com/jneal7492
+  twitter:           https://twitter.com/@sdroadie92
+  github:            https://github.com/sdroadie
   email:             jneal1992@gmail.com
 
 # Custom vars
