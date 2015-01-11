@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+ <title>Jeremy Neal</title>
+ <link href="http://sdroadie.github.io/atom.xml" rel="self"/>
+ <link href="http://sdroadie.github.io/"/>
+ <updated>2015-01-11T10:59:34-05:00</updated>
+ <id>http://sdroadie.github.io</id>
+ <author>
+   <name>Jeremy Neal</name>
+   <email>jneal1992@gmail.com</email>
+ </author>
+
+ 
+ <entry>
+   <title>Learning Clojure</title>
+   <link href="http://sdroadie.github.io/2015/01/11/learning-clojure/"/>
+   <updated>2015-01-11T00:00:00-05:00</updated>
+   <id>http://sdroadie.github.io/2015/01/11/learning-clojure</id>
+   <content type="html">&lt;p&gt;About a year back, I took a programming languages class. I think it was a
+pretty standard course: boot camp style introduction to several languages
+across several paradigms. I found two things interesting. The first was formal
+grammars. I&amp;#39;d never thought of languages in that regard. Even when studying
+natural languages (I&amp;#39;ve taken a bit of Spanish and Arabic), I didn&amp;#39;t think
+of them in terms of the formal grammars that structured the language. Anyway,
+I thought it was really interesting that you could describe languages in
+such a structured, unambiguous way.&lt;/p&gt;
+
+&lt;p&gt;The other thing that I found interesting, and is really the point of this
+post, were functional languages. We covered Common Lisp and Haskell. It was
+an eye-opening experience. Most of the languages I had used up until then
+(Ruby, Python, Java, C) were fairly similar in how they approached problems.
+Sure, some languages had dynamic typing, others were compiled. But how you
+actually tried to solve problems was often focused on how to structure your
+code to attack a problem.&lt;/p&gt;
+
+&lt;p&gt;The thing I found interesting about Haskell, Common Lisp, and now Clojure,
+was that you don&amp;#39;t focus on the actual data you have to deal with. This is
+less true with Haskell, due to its rigid but powerful type system. With Lisps,
+data and code are one in the same. And when dealing with collections, it
+doesn&amp;#39;t matter if you&amp;#39;re dealing with a hash map or a list. It&amp;#39;s liberating.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#39;m really focusing on learning Clojure. I think it will be a powerful
+complement to Ruby and Python. There&amp;#39;s also the possibility that it will be
+the only language I need to use, as you can target the JVM, CLI, browsers,
+mobile, etc. It just feels like a more powerful tool.&lt;/p&gt;
+</content>
+ </entry>
+ 
+
+</feed>
