@@ -4,13 +4,39 @@
  <title>Jeremy Neal</title>
  <link href="http://sdroadie.github.io/atom.xml" rel="self"/>
  <link href="http://sdroadie.github.io/"/>
- <updated>2015-01-11T11:10:17-05:00</updated>
+ <updated>2015-01-11T19:11:08-05:00</updated>
  <id>http://sdroadie.github.io</id>
  <author>
    <name>Jeremy Neal</name>
    <email>jneal1992@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Learning Rails, Day 1</title>
+   <link href="http://sdroadie.github.io/2015/01/11/learning-rails/"/>
+   <updated>2015-01-11T00:00:00-05:00</updated>
+   <id>http://sdroadie.github.io/2015/01/11/learning-rails</id>
+   <content type="html">&lt;p&gt;I noticed a trend. Clojure is awesome. And most Clojurists seem to use Rails. As such, I thought it would be worth
+investigating for myself.&lt;/p&gt;
+
+&lt;p&gt;As far as scripting languages go, I encountered Python first, and I loved it for its simplicity. Very few languages are
+as readable and make expressing complicated ideas easy. At least, at first. Anyway, I never bothered with Ruby seriously.
+It didn&amp;#39;t seem that there was anything it offered that Python didn&amp;#39;t. And I already knew Python pretty well. Overall,
+it seemed that Python was used for any number of things: data science, SysOps, computer vision. There seemed to be no
+reason to spend time learning a new language when I could just become more proficient in the one I already knew.&lt;/p&gt;
+
+&lt;p&gt;Still, something about Rails struck a chord with me. It&amp;#39;s such an enormous thing to learn, yet people swear by it.
+Today, after hours of messing around with the awesome &lt;a href=&quot;https://overtone.github.io&quot;&gt;Overtone&lt;/a&gt; library, I decided to take
+a break from Clojure for the day and try something else. I looked up Michael Hartl&amp;#39;s well-known
+&lt;a href=&quot;https://www.railstutorial.org&quot;&gt;Rails tutorial&lt;/a&gt;. I&amp;#39;m only through two chapters, but even so, I think I get it.&lt;/p&gt;
+
+&lt;p&gt;Rails is big, but it is also powerful. Without the scaffolding, it would be a beast to wrap one&amp;#39;s brain around. Either way,
+the way it is structured is fantastic. Even after a few hours, what I&amp;#39;ve learned just makes sense.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#39;m really excited to learn more. But that&amp;#39;s all for today!&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Learning Clojure</title>
