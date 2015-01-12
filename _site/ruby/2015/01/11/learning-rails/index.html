@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Learning Rails, Day 1 &middot; Jeremy Neal
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="/public/css/custom.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>I'm a Baltimore-based software developer. I love programming in Ruby and Python mainly, though I always try to learn new skills.</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Home</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about/">About</a>
+        
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/projects/">Projects</a>
+        
+      
+    
+    <a class="sidebar-nav-item" href="https://twitter.com/@sdroadie92">Twitter</a>
+    <a class="sidebar-nav-item" href="https://github.com/sdroadie">Github</a>
+    <a class="sidebar-nav-item" href="mailto:jneal1992@gmail.com">Email</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">Jeremy Neal</a>
+            <small>Software Developer</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">Learning Rails, Day 1</h1>
+  <span class="post-date">11 Jan 2015</span>
+  <p>I noticed a trend. Clojure is awesome. And most Clojurists seem to use Rails. As such, I thought it would be worth
+investigating for myself.</p>
+
+<p>As far as scripting languages go, I encountered Python first, and I loved it for its simplicity. Very few languages are
+as readable and make expressing complicated ideas easy. At least, at first. Anyway, I never bothered with Ruby seriously.
+It didn&#39;t seem that there was anything it offered that Python didn&#39;t. And I already knew Python pretty well. Overall,
+it seemed that Python was used for any number of things: data science, SysOps, computer vision. There seemed to be no
+reason to spend time learning a new language when I could just become more proficient in the one I already knew.</p>
+
+<p>Still, something about Rails struck a chord with me. It&#39;s such an enormous thing to learn, yet people swear by it.
+Today, after hours of messing around with the awesome <a href="https://overtone.github.io">Overtone</a> library, I decided to take
+a break from Clojure for the day and try something else. I looked up Michael Hartl&#39;s well-known
+<a href="https://www.railstutorial.org">Rails tutorial</a>. I&#39;m only through two chapters, but even so, I think I get it.</p>
+
+<p>Rails is big, but it is also powerful. Without the scaffolding, it would be a beast to wrap one&#39;s brain around. Either way,
+the way it is structured is fantastic. Even after a few hours, what I&#39;ve learned just makes sense.</p>
+
+<p>I&#39;m really excited to learn more. But that&#39;s all for today!</p>
+
+  <div>If you enjoyed this post, follow me on <a href="https://twitter.com/@sdroadie92">
+      Twitter</a>!</div>
+  <div class="tags">
+    <span>Tags:</span>
+    <ul class="tag-list">
+      
+        <li>ruby</li>
+      
+        <li>rails</li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="//clojure/2015/01/11/learning-clojure/">
+            Learning Clojure
+            <small>11 Jan 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+  </body>
+</html>
