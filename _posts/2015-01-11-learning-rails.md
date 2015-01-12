@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Learning Rails, Day 1
+category: Ruby
+tags: [ruby, rails]
 ---
 
 I noticed a trend. Clojure is awesome. And most Clojurists seem to use Rails. As such, I thought it would be worth

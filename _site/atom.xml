@@ -4,7 +4,7 @@
  <title>Jeremy Neal</title>
  <link href="http://sdroadie.github.io/atom.xml" rel="self"/>
  <link href="http://sdroadie.github.io/"/>
- <updated>2015-01-11T19:11:08-05:00</updated>
+ <updated>2015-01-11T23:57:14-05:00</updated>
  <id>http://sdroadie.github.io</id>
  <author>
    <name>Jeremy Neal</name>
@@ -14,9 +14,9 @@
  
  <entry>
    <title>Learning Rails, Day 1</title>
-   <link href="http://sdroadie.github.io/2015/01/11/learning-rails/"/>
+   <link href="http://sdroadie.github.io/ruby/2015/01/11/learning-rails/"/>
    <updated>2015-01-11T00:00:00-05:00</updated>
-   <id>http://sdroadie.github.io/2015/01/11/learning-rails</id>
+   <id>http://sdroadie.github.io/ruby/2015/01/11/learning-rails</id>
    <content type="html">&lt;p&gt;I noticed a trend. Clojure is awesome. And most Clojurists seem to use Rails. As such, I thought it would be worth
 investigating for myself.&lt;/p&gt;
 
@@ -40,9 +40,9 @@ the way it is structured is fantastic. Even after a few hours, what I&amp;#39;ve
  
  <entry>
    <title>Learning Clojure</title>
-   <link href="http://sdroadie.github.io/2015/01/11/learning-clojure/"/>
+   <link href="http://sdroadie.github.io/clojure/2015/01/11/learning-clojure/"/>
    <updated>2015-01-11T00:00:00-05:00</updated>
-   <id>http://sdroadie.github.io/2015/01/11/learning-clojure</id>
+   <id>http://sdroadie.github.io/clojure/2015/01/11/learning-clojure</id>
    <content type="html">&lt;p&gt;About a year back, I took a programming languages class. I think it was a
 pretty standard course: boot camp style introduction to several languages
 across several paradigms. I found two things interesting. The first was formal

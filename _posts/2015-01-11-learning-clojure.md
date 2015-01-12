@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Learning Clojure
+category: clojure
+tags: [clojure, functional programming]
 ---
 
 About a year back, I took a programming languages class. I think it was a
