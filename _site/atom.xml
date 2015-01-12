@@ -4,7 +4,7 @@
  <title>Jeremy Neal</title>
  <link href="http://sdroadie.github.io/atom.xml" rel="self"/>
  <link href="http://sdroadie.github.io/"/>
- <updated>2015-01-12T00:12:22-05:00</updated>
+ <updated>2015-01-12T11:38:22-05:00</updated>
  <id>http://sdroadie.github.io</id>
  <author>
    <name>Jeremy Neal</name>
@@ -68,8 +68,15 @@ doesn&amp;#39;t matter if you&amp;#39;re dealing with a hash map or a list. It&a
 
 &lt;p&gt;I&amp;#39;m really focusing on learning Clojure. I think it will be a powerful
 complement to Ruby and Python. There&amp;#39;s also the possibility that it will be
-the only language I need to use, as you can target the JVM, CLI, browsers,
+the only language I need to use, as you can target the JVM, CLR, browsers,
 mobile, etc. It just feels like a more powerful tool.&lt;/p&gt;
+
+&lt;h3&gt;Edits&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Meant CLR, not CLI. It&amp;#39;s a runtime, not an interface (or whatever else &amp;#39;I&amp;#39; could stand for).&lt;/li&gt;
+&lt;li&gt;Note: a bunch of things I&amp;#39;ve said are probably misinformed. I&amp;#39;m learning here...&lt;/li&gt;
+&lt;/ul&gt;
 </content>
  </entry>
  

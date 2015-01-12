@@ -30,5 +30,9 @@ doesn't matter if you're dealing with a hash map or a list. It's liberating.
 
 I'm really focusing on learning Clojure. I think it will be a powerful
 complement to Ruby and Python. There's also the possibility that it will be
-the only language I need to use, as you can target the JVM, CLI, browsers,
+the only language I need to use, as you can target the JVM, CLR, browsers,
 mobile, etc. It just feels like a more powerful tool.
+
+### Edits
+- Meant CLR, not CLI. It's a runtime, not an interface (or whatever else 'I' could stand for).
+- Note: a bunch of things I've said are probably misinformed. I'm learning here...
