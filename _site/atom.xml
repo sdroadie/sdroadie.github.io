@@ -4,13 +4,82 @@
  <title>Jeremy Neal</title>
  <link href="http://sdroadie.github.io/atom.xml" rel="self"/>
  <link href="http://sdroadie.github.io/"/>
- <updated>2015-01-12T12:04:22-05:00</updated>
+ <updated>2015-02-17T20:03:55-05:00</updated>
  <id>http://sdroadie.github.io</id>
  <author>
    <name>Jeremy Neal</name>
    <email>jneal1992@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Deploying Jekyll with Travis CI</title>
+   <link href="http://sdroadie.github.io/2015/02/17/jekyll-deployment/"/>
+   <updated>2015-02-17T00:00:00-05:00</updated>
+   <id>http://sdroadie.github.io/2015/02/17/jekyll-deployment</id>
+   <content type="html">&lt;p&gt;I like Jekyll. It&amp;#39;s a clean, simple piece of software that makes hosting blogs
+painless. I use it for this site, and some others as well. I just built a site
+for my girlfriend &lt;strong&gt;(she&amp;#39;s an actress in the Baltimore area.
+Check &lt;a href=&quot;http://martharobichaud.com&quot;&gt;her&lt;/a&gt; out if that interests you)&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;When I was building her site, the traditional route would have been to use 
+something like Wordpress or some other CMS, as she would need to edit content 
+after the fact. Alternatively, I could implement my own CMS for her. I didn&amp;#39;t 
+like either of these options. I really dislike Wordpress for a number of 
+reasons, and I don&amp;#39;t have the time to write such a complicated system, as I&amp;#39;m
+in my last semester of my bachelor&amp;#39;s. Instead, I chose to use Jekyll.&lt;/p&gt;
+
+&lt;p&gt;For the most part, Jekyll was fine, aside from the user-friendliness. She&amp;#39;s not
+a developer, and expecting her to use the command-line would have been absurd.
+So here&amp;#39;s what I did to get her site up and running.&lt;/p&gt;
+
+&lt;h2&gt;Create a Github repo.&lt;/h2&gt;
+
+&lt;p&gt;There&amp;#39;s nothing particularly private on her site, putting everything in a public
+Github repo was easiest.&lt;/p&gt;
+
+&lt;h2&gt;Deploy with Travis CI.&lt;/h2&gt;
+
+&lt;p&gt;This website could have been hosted on Github pages, but for particular reasons,
+I chose to host her site on Namecheap. This makes the build process more
+complicated. On the &lt;a href=&quot;http://jekyllrb.com/docs/deployment-methods/&quot;&gt;Jekyll&lt;/a&gt; site,
+they list a number of ways of deploying. Since I didn&amp;#39;t want her to have to
+touch any of the tools, I chose to deploy with &lt;a href=&quot;http://travis-ci.org&quot;&gt;Travis CI&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The setup for this was pretty easy, but I ran into a few problems that might not
+be immediately straightforward to solve. First, you need to hook up the repo to
+Travis. This is covered in a number of places.&lt;/p&gt;
+
+&lt;p&gt;I wanted to upload this site over FTP, and this required using a username and
+password. I was immediately worried that this would be sitting in my repo, which
+is dangerous! However, Travis is awesome and provides a way of encrypting your
+credentials for deployment.&lt;/p&gt;
+
+&lt;p&gt;In my case, I needed to include my FTP username and password. After installing
+the Travis gem, running the following commands encrypts your keys and stores
+them in .travis.yml, allowing you to call them without exposing them:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;travis encrypt --add &lt;span class=&quot;nv&quot;&gt;FTP_USER&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;ftp_username
+travis encrypt --add &lt;span class=&quot;nv&quot;&gt;FTP_PASSWORD&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;FTP_PASSWORD
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Within your build instructions, you can call these values by name. I did just
+this to deploy the _site directory to the web host.&lt;/p&gt;
+
+&lt;p&gt;In the after_success section of .travis.yml, add the following command:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ./_site &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; find . -type f -exec curl -u &lt;span class=&quot;nv&quot;&gt;$FTP_SUSER&lt;/span&gt;:&lt;span class=&quot;nv&quot;&gt;$FTP_PASSWORD&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+--ftp-create-dirs -T &lt;span class=&quot;o&quot;&gt;{}&lt;/span&gt; ftp://my_website.com/public_html/&lt;span class=&quot;o&quot;&gt;{}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In case you are unsure, this will change the context to the site directory, find
+all files and upload them to the public_html directory of the host using curl.&lt;/p&gt;
+
+&lt;h2&gt;Content with Prose.io.&lt;/h2&gt;
+
+&lt;p&gt;As I said before, my girlfriend is not a technical user. I don&amp;#39;t expect her to
+open a text editor and use Markdown (though it is quite easy) just to add new
+content to her site. Using &lt;a href=&quot;http://prose.io&quot;&gt;Prose.io&lt;/a&gt;, she can easily add
+images, blog posts, or any other content, without having to play around with git
+commands, text editors, etc.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Learning Rails, Day 1</title>
