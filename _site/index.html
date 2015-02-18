@@ -114,63 +114,8 @@ painless. I use it for this site, and some others as well. I just built a site
 for my girlfriend <strong>(she&#39;s an actress in the Baltimore area.
 Check <a href="http://martharobichaud.com">her</a> out if that interests you)</strong>.</p>
 
-<p>When I was building her site, the traditional route would have been to use 
-something like Wordpress or some other CMS, as she would need to edit content 
-after the fact. Alternatively, I could implement my own CMS for her. I didn&#39;t 
-like either of these options. I really dislike Wordpress for a number of 
-reasons, and I don&#39;t have the time to write such a complicated system, as I&#39;m
-in my last semester of my bachelor&#39;s. Instead, I chose to use Jekyll.</p>
 
-<p>For the most part, Jekyll was fine, aside from the user-friendliness. She&#39;s not
-a developer, and expecting her to use the command-line would have been absurd.
-So here&#39;s what I did to get her site up and running.</p>
-
-<h2>Create a Github repo.</h2>
-
-<p>There&#39;s nothing particularly private on her site, putting everything in a public
-Github repo was easiest.</p>
-
-<h2>Deploy with Travis CI.</h2>
-
-<p>This website could have been hosted on Github pages, but for particular reasons,
-I chose to host her site on Namecheap. This makes the build process more
-complicated. On the <a href="http://jekyllrb.com/docs/deployment-methods/">Jekyll</a> site,
-they list a number of ways of deploying. Since I didn&#39;t want her to have to
-touch any of the tools, I chose to deploy with <a href="http://travis-ci.org">Travis CI</a>.</p>
-
-<p>The setup for this was pretty easy, but I ran into a few problems that might not
-be immediately straightforward to solve. First, you need to hook up the repo to
-Travis. This is covered in a number of places.</p>
-
-<p>I wanted to upload this site over FTP, and this required using a username and
-password. I was immediately worried that this would be sitting in my repo, which
-is dangerous! However, Travis is awesome and provides a way of encrypting your
-credentials for deployment.</p>
-
-<p>In my case, I needed to include my FTP username and password. After installing
-the Travis gem, running the following commands encrypts your keys and stores
-them in .travis.yml, allowing you to call them without exposing them:</p>
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">travis encrypt --add <span class="nv">FTP_USER</span><span class="o">=</span>ftp_username
-travis encrypt --add <span class="nv">FTP_PASSWORD</span><span class="o">=</span>FTP_PASSWORD
-</code></pre></div>
-<p>Within your build instructions, you can call these values by name. I did just
-this to deploy the _site directory to the web host.</p>
-
-<p>In the after_success section of .travis.yml, add the following command:</p>
-<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nb">cd</span> ./_site <span class="o">&amp;&amp;</span> find . -type f -exec curl -u <span class="nv">$FTP_SUSER</span>:<span class="nv">$FTP_PASSWORD</span> <span class="se">\</span>
---ftp-create-dirs -T <span class="o">{}</span> ftp://my_website.com/public_html/<span class="o">{}</span>
-</code></pre></div>
-<p>In case you are unsure, this will change the context to the site directory, find
-all files and upload them to the public_html directory of the host using curl.</p>
-
-<h2>Content with Prose.io.</h2>
-
-<p>As I said before, my girlfriend is not a technical user. I don&#39;t expect her to
-open a text editor and use Markdown (though it is quite easy) just to add new
-content to her site. Using <a href="http://prose.io">Prose.io</a>, she can easily add
-images, blog posts, or any other content, without having to play around with git
-commands, text editors, etc.</p>
-
+    <span class="read-more"><a href="/2015/02/17/jekyll-deployment/">Read More</a></span>
   </div>
   
   <div class="post">
@@ -185,22 +130,8 @@ commands, text editors, etc.</p>
     <p>I noticed a trend. Clojure is awesome. And most Clojurists seem to use Rails. As such, I thought it would be worth
 investigating for myself.</p>
 
-<p>As far as scripting languages go, I encountered Python first, and I loved it for its simplicity. Very few languages are
-as readable and make expressing complicated ideas easy. At least, at first. Anyway, I never bothered with Ruby seriously.
-It didn&#39;t seem that there was anything it offered that Python didn&#39;t. And I already knew Python pretty well. Overall,
-it seemed that Python was used for any number of things: data science, SysOps, computer vision. There seemed to be no
-reason to spend time learning a new language when I could just become more proficient in the one I already knew.</p>
 
-<p>Still, something about Rails struck a chord with me. It&#39;s such an enormous thing to learn, yet people swear by it.
-Today, after hours of messing around with the awesome <a href="https://overtone.github.io">Overtone</a> library, I decided to take
-a break from Clojure for the day and try something else. I looked up Michael Hartl&#39;s well-known
-<a href="https://www.railstutorial.org">Rails tutorial</a>. I&#39;m only through two chapters, but even so, I think I get it.</p>
-
-<p>Rails is big, but it is also powerful. Without the scaffolding, it would be a beast to wrap one&#39;s brain around. Either way,
-the way it is structured is fantastic. Even after a few hours, what I&#39;ve learned just makes sense.</p>
-
-<p>I&#39;m really excited to learn more. But that&#39;s all for today!</p>
-
+    <span class="read-more"><a href="/ruby/2015/01/11/learning-rails/">Read More</a></span>
   </div>
   
   <div class="post">
@@ -221,32 +152,8 @@ of them in terms of the formal grammars that structured the language. Anyway,
 I thought it was really interesting that you could describe languages in
 such a structured, unambiguous way.</p>
 
-<p>The other thing that I found interesting, and is really the point of this
-post, were functional languages. We covered Common Lisp and Haskell. It was
-an eye-opening experience. Most of the languages I had used up until then
-(Ruby, Python, Java, C) were fairly similar in how they approached problems.
-Sure, some languages had dynamic typing, others were compiled. But how you
-actually tried to solve problems was often focused on how to structure your
-code to attack a problem.</p>
 
-<p>The thing I found interesting about Haskell, Common Lisp, and now Clojure,
-was that you don&#39;t focus on the actual data you have to deal with. This is
-less true with Haskell, due to its rigid but powerful type system. With Lisps,
-data and code are one in the same. And when dealing with collections, it
-doesn&#39;t matter if you&#39;re dealing with a hash map or a list. It&#39;s liberating.</p>
-
-<p>I&#39;m really focusing on learning Clojure. I think it will be a powerful
-complement to Ruby and Python. There&#39;s also the possibility that it will be
-the only language I need to use, as you can target the JVM, CLR, browsers,
-mobile, etc. It just feels like a more powerful tool.</p>
-
-<h3>Edits</h3>
-
-<ul>
-<li>Meant CLR, not CLI. It&#39;s a runtime, not an interface (or whatever else &#39;I&#39; could stand for).</li>
-<li>Note: a bunch of things I&#39;ve said are probably misinformed. I&#39;m learning here...</li>
-</ul>
-
+    <span class="read-more"><a href="/clojure/2015/01/11/learning-clojure/">Read More</a></span>
   </div>
   
 </div>

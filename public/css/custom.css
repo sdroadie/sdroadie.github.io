@@ -18,3 +18,20 @@
     margin: 0 0.33em;
     display: inline;
 }
+
+.post {
+    margin-bottom: 2em;
+}
+
+.read-more {
+    color: #818181;
+}
+
+.read-more a {
+    color: #818181;
+}
+
+.read-more::before {
+    content: "...";
+}
+
