@@ -1,13 +1,14 @@
 ---
 layout: post
 title: Deploying Jekyll with Travis CI
-tags: jekyll, ruby, travis, ci
-
+tags: "jekyll, ruby, travis, ci"
+published: true
 ---
+
 
 I like Jekyll. It's a clean, simple piece of software that makes hosting blogs
 painless. I use it for this site, and some others as well. I just built a site
-for my girlfriend **(she's an actress in the Baltimore area.
+for a friend **(she's an actress in the Baltimore area.
 Check [her](http://martharobichaud.com) out if that interests you)**.
 
 When I was building her site, the traditional route would have been to use 
@@ -69,4 +70,3 @@ open a text editor and use Markdown (though it is quite easy) just to add new
 content to her site. Using [Prose.io](http://prose.io), she can easily add
 images, blog posts, or any other content, without having to play around with git
 commands, text editors, etc.
-
