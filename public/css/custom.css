@@ -39,11 +39,11 @@
     content: "...";
 }
 
-a::before {
+.post > p a::before {
     content: "[";
 }
 
-a::after {
+.post > p a::after {
     content: "]";
 }
 
