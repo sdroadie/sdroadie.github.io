@@ -6,10 +6,13 @@ published: true
 ---
 
 
+
 I like Jekyll. It's a clean, simple piece of software that makes hosting blogs
 painless. I use it for this site, and some others as well. I just built a site
 for a friend **(she's an actress in the Baltimore area.
 Check [her](http://martharobichaud.com) out if that interests you)**.
+
+**NOTE: The site has since been switched to [Squarespace](https://www.squarespace.com). However, the following guidance still works.**
 
 When I was building her site, the traditional route would have been to use 
 something like Wordpress or some other CMS, as she would need to edit content 
@@ -65,7 +68,7 @@ In case you are unsure, this will change the context to the site directory, find
 all files and upload them to the public_html directory of the host using curl.
 
 ## Content with Prose.io.
-As I said before, my girlfriend is not a technical user. I don't expect her to
+As I said before, my friend is not a technical user. I didn't expect her to
 open a text editor and use Markdown (though it is quite easy) just to add new
 content to her site. Using [Prose.io](http://prose.io), she can easily add
 images, blog posts, or any other content, without having to play around with git
