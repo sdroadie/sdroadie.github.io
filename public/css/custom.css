@@ -1,3 +1,7 @@
+*, .post-title, .post > h2 {
+    font-family: "Andale Mono", monospace;
+}
+
 .tags {
     margin-top: 1em;
 }
@@ -33,5 +37,13 @@
 
 .read-more::before {
     content: "...";
+}
+
+a::before {
+    content: "[";
+}
+
+a::after {
+    content: "]";
 }
 
