@@ -4,13 +4,40 @@
  <title>Jeremy Neal</title>
  <link href="http://sdroadie.github.io/atom.xml" rel="self"/>
  <link href="http://sdroadie.github.io/"/>
- <updated>2015-08-17T08:53:45-04:00</updated>
+ <updated>2015-08-17T10:39:22-04:00</updated>
  <id>http://sdroadie.github.io</id>
  <author>
    <name>Jeremy Neal</name>
    <email>jneal1992@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Oklahoma</title>
+   <link href="http://sdroadie.github.io/poem/2015/08/17/ok/"/>
+   <updated>2015-08-17T00:00:00-04:00</updated>
+   <id>http://sdroadie.github.io/poem/2015/08/17/ok</id>
+   <content type="html">&lt;p&gt;Clear skies for miles
+but not a sight to see.
+Tongue burned and blinded
+by the hotel coffee.&lt;/p&gt;
+
+&lt;p&gt;Not half a world away from home
+yet it feels like another planet.
+So much space and time to fill,
+how do the locals manage?&lt;/p&gt;
+
+&lt;p&gt;Probably pessimistic
+or simply expecting more
+from life and all the places
+that I get to tour.&lt;/p&gt;
+
+&lt;p&gt;Maybe I should just sit back,
+and soak up what I can.
+It&amp;#39;s only a few days
+til I&amp;#39;m back in Maryland.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>A better to-do app.</title>
@@ -53,6 +80,8 @@ information, and I&amp;#39;d gladly pay for it.&lt;/p&gt;
 painless. I use it for this site, and some others as well. I just built a site
 for a friend &lt;strong&gt;(she&amp;#39;s an actress in the Baltimore area.
 Check &lt;a href=&quot;http://martharobichaud.com&quot;&gt;her&lt;/a&gt; out if that interests you)&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;NOTE: The site has since been switched to &lt;a href=&quot;https://www.squarespace.com&quot;&gt;Squarespace&lt;/a&gt;. However, the following guidance still works.&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;When I was building her site, the traditional route would have been to use 
 something like Wordpress or some other CMS, as she would need to edit content 
@@ -105,7 +134,7 @@ all files and upload them to the public_html directory of the host using curl.&l
 
 &lt;h2&gt;Content with Prose.io.&lt;/h2&gt;
 
-&lt;p&gt;As I said before, my girlfriend is not a technical user. I don&amp;#39;t expect her to
+&lt;p&gt;As I said before, my friend is not a technical user. I didn&amp;#39;t expect her to
 open a text editor and use Markdown (though it is quite easy) just to add new
 content to her site. Using &lt;a href=&quot;http://prose.io&quot;&gt;Prose.io&lt;/a&gt;, she can easily add
 images, blog posts, or any other content, without having to play around with git

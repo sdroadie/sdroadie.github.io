@@ -1,4 +1,4 @@
-*, .post-title, .post > h2 {
+*, .post-title, .post > h2, .page-title {
     font-family: "Andale Mono", monospace;
 }
 
@@ -47,3 +47,11 @@
     content: "]";
 }
 
+.poem {
+    text-align: center;
+    background: inherit;
+}
+
+.poem > p {
+    margin-bottom: 0;
+}
