@@ -1,4 +1,4 @@
-*, .post-title, .post > h2, .page-title {
+*, .post-title, .post > h2, .page-titleG {
     font-family: "Andale Mono", monospace;
 }
 
@@ -54,4 +54,8 @@
 
 .poem > p {
     margin-bottom: 0;
+}
+
+.poem > .post-title {
+    margin: 10px;
 }
