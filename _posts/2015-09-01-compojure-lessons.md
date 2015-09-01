@@ -1,6 +1,13 @@
 ---
 published: false
+layout: post
+category: programming
+tags: 
+  - clojure
+  - compojure
+  - JSON
 ---
+
 
 ## Lessons about Compojure and Clojure
 
@@ -64,4 +71,17 @@ The issue here is subtle, but obvious to the experienced developer. The 404 rout
 	(routes some-routes interface))
 ```
 
+### Handling raw POST data with Compojure.
+I'm pretty new to Clojure. I've only been using it at work for about two weeks. It's been a pleasant learning curve - the codebase looks quite a bit better, and is also much easier to reason about.
 
+I ran into one issue with getting raw POST data from a request using Compojure. I'm not familiar with the system yet, so I try to get something to work, then look it up on StackOverflow or something.
+
+Looking at the docs for Compojure, it seemed that the proper way of getting the data from a request is to get the `:params` map from the request. However, due to passing raw data (I'm using [Postman](https://www.getpostman.com/) to test), this map was empty - everything was in the `:body` map. It's trivial to get the data out of this.
+
+#### Example
+```clojure
+(POST "some-route" {body :body}
+      (-> (slurp body) (do-stuff)))
+```
+
+I'll add other bits of knowledge and wisdom as I run into them. But that's all for now.
