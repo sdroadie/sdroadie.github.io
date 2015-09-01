@@ -9,8 +9,6 @@ tags:
 ---
 
 
-## Lessons about Compojure and Clojure
-
 I recently had the opportunity to migrate a codebase for a work project from NodeJS and React to Clojure and Clojurescript. I've been trying to pick up Clojure for months now, but I find it difficult without a solid project. Since I started porting our code over, I feel that I'm understanding how to do things in this system at an impressive rate.
 
 That being said, I've hit a few issues along the way that I'd like to document, both for myself and for others. Some of these are specific to my tech stack, while others are likely general web stuff.
