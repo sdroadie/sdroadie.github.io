@@ -9,6 +9,7 @@ tags:
 ---
 
 
+
 I recently had the opportunity to migrate a codebase for a work project from NodeJS and React to Clojure and Clojurescript. I've been trying to pick up Clojure for months now, but I find it difficult without a solid project. Since I started porting our code over, I feel that I'm understanding how to do things in this system at an impressive rate.
 
 That being said, I've hit a few issues along the way that I'd like to document, both for myself and for others. Some of these are specific to my tech stack, while others are likely general web stuff.
@@ -81,5 +82,14 @@ Looking at the docs for Compojure, it seemed that the proper way of getting the 
 (POST "some-route" {body :body}
       (-> (slurp body) (do-stuff)))
 ```
+
+### Clojure vectors to JDBC Arrays (and know what version of JDBC you're using).
+In my data set, I need to store 3D geometry data. Using Postgres, I chose to do this by serializing mesh data (vertices, faces, etc.) to JSON (which Postgres lets you store!), and turning transform Vector3s into arrays. I initially attempted to write Postgres types around arrays to ensure that these transform components could only be arrays of length 3, but this ended up being more trouble than it was worth.
+
+Anyway, the issue I ran into was this: going from JSON to Clojure maps was simple (using `clojure.data.json`) but inserting these Clojure data structures was an issue. Simple data types, like integers and strings, were automatically converted. Vectors were... not? I don't actually know how they were being entered into Postgres, but the server kept spitting an error at me. It was stating that the number of expressions was greater than the number of columns. I inferred this to mean that vectors weren't being converted into an acceptable form.
+
+I figured out what I needed to do: translate these vectors to JDBC arrays. This process isn't as streamlined as it could be, as you need to have an active JDBC connection to do the conversion. To be efficient, you need to do this in a transaction before you actually submit your query. That feels weird. But it isn't even the problem. My problem is even simpler than that.
+
+My vectors were storing data as doubles. Spatial coordinates need to be as specific as possible, so highest precision is preferable. To convert vectors (or any Clojure seq) to a JDBC array, you need to call `.createArrayOf`. ex. `(.createArrayOf conn "double" (into-array [...]))`. The problem here is a versioning one. I'm using JDBCv4. All the documentation that came up when I searched for "JDBC array types" listed `double` as an acceptable type. However, in JDBCv4, this was deprecated in favor of the `float` type. So, my code needed to look like this: `(.createArrayOf conn "float" (into-array [...]))`. And this took me longer to realize than I'm proud admitting.
 
 I'll add other bits of knowledge and wisdom as I run into them. But that's all for now.
