@@ -10,6 +10,7 @@ tags:
 
 
 
+
 I recently had the opportunity to migrate a codebase for a work project from NodeJS and React to Clojure and Clojurescript. I've been trying to pick up Clojure for months now, but I find it difficult without a solid project. Since I started porting our code over, I feel that I'm understanding how to do things in this system at an impressive rate.
 
 That being said, I've hit a few issues along the way that I'd like to document, both for myself and for others. Some of these are specific to my tech stack, while others are likely general web stuff.
@@ -91,5 +92,20 @@ Anyway, the issue I ran into was this: going from JSON to Clojure maps was simpl
 I figured out what I needed to do: translate these vectors to JDBC arrays. This process isn't as streamlined as it could be, as you need to have an active JDBC connection to do the conversion. To be efficient, you need to do this in a transaction before you actually submit your query. That feels weird. But it isn't even the problem. My problem is even simpler than that.
 
 My vectors were storing data as doubles. Spatial coordinates need to be as specific as possible, so highest precision is preferable. To convert vectors (or any Clojure seq) to a JDBC array, you need to call `.createArrayOf`. ex. `(.createArrayOf conn "double" (into-array [...]))`. The problem here is a versioning one. I'm using JDBCv4. All the documentation that came up when I searched for "JDBC array types" listed `double` as an acceptable type. However, in JDBCv4, this was deprecated in favor of the `float` type. So, my code needed to look like this: `(.createArrayOf conn "float" (into-array [...]))`. And this took me longer to realize than I'm proud admitting.
+
+### Types are great.
+PostgreSQL does pretty strong type checking. For a current project, I'm using the [Yesql](https://github.com/krisajenkins/yesql) to build my queries. The best part of this is that you can have casts in your queries, which makes passing data much easier. For example, I have one record type that describes a 3D mesh object. The schema is:
+
+```sql
+CREATE TABLE mesh(mesh_id serial primary key, name text, mesh_data json, mesh_type mesh_t);
+```
+
+The `mesh_t` type is a simple enum type of strings representing primitive mesh types. Using casts, I can send my mesh type as a string, but have it typed in queries for safety.
+
+An example of this would be an insert. Such a query using Yesql would look like this:
+
+```sql
+INSERT INTO mesh (mesh_type, mesh_data, name) VALUES (:mesh_type::mesh_t, :mesh_data, :name);
+```
 
 I'll add other bits of knowledge and wisdom as I run into them. But that's all for now.
