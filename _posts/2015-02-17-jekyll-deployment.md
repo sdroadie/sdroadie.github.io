@@ -9,10 +9,7 @@ published: true
 
 I like Jekyll. It's a clean, simple piece of software that makes hosting blogs
 painless. I use it for this site, and some others as well. I just built a site
-for a friend **(she's an actress in the Baltimore area.
-Check [her](http://martharobichaud.com) out if that interests you)**.
-
-**NOTE: The site has since been switched to [Squarespace](https://www.squarespace.com). However, the following guidance still works.**
+for a friend.
 
 When I was building her site, the traditional route would have been to use 
 something like Wordpress or some other CMS, as she would need to edit content 

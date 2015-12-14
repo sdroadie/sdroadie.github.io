@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Flask vs. Django &middot; Jeremy Neal
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="/public/css/custom.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>I'm a Baltimore-based software developer. I love programming in Ruby and Python mainly, though I always try to learn new skills.</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Home</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about/">About</a>
+        
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/projects/">Projects</a>
+        
+      
+    
+    <a class="sidebar-nav-item" href="https://twitter.com/@_jneal_">Twitter</a>
+    <a class="sidebar-nav-item" href="https://github.com/sdroadie">Github</a>
+    <a class="sidebar-nav-item" href="mailto:jneal1992@gmail.com">Email</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">Jeremy Neal</a>
+            <small>Software Developer</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">Flask vs. Django</h1>
+  <span class="post-date">03 Dec 2015</span>
+  <p>I really like Clojure. A lot. Since I&#39;ve started using it seriously, I find myself going
+to it to solve most of my problems. My previous go-to language was Python. It has its
+share of issues (GIL, for example), but overall, it&#39;s a joy to work in. Given its ease
+of use, it&#39;s quite a popular language as well. As such, it&#39;s pretty easy to find developers
+who know it, or are at least comfortable with it.</p>
+
+<p>As much as I like Clojure, developer onboarding is a concern when starting a new project.
+Some friends approached me to help them with an idea they had. They&#39;re both non-technical,
+so any decisions in this realm were left up to me. I would have loved to use Clojure, but
+finding people to help develop their app would be a little harder. So I found myself
+looking at Python again. Based off my previous experience, I found myself looking at two
+web frameworks to build the backend: <a href="http://flask.pocoo.org">Flask</a> and
+<a href="https://www.djangoproject.com">Django</a>.</p>
+
+<p>I&#39;m fairly familiar with Flask. I&#39;ve used it to build big and small projects. I wasn&#39;t
+particularly familiar with Django, so along with doing some tutorials/reading the
+documentation, I attended a few local Django meetups. The last one got cancelled, but
+I was supposed to give a talk comparing the two frameworks from my point of view. Since
+that meetup was cancelled, I&#39;ve decided to write up a blog post instead. Note that this
+is all based off of my somewhat limited experience.</p>
+
+<h2>Flask</h2>
+
+<p>Flask is great. It&#39;s a microframework written by <a href="https://twitter.com/@mitsuhiko">Armin Ronacher</a>. I personally love it. It&#39;s incredibly flexible and easy to use. A basic app, as
+seen on the Flask homepage is as simple as this:</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">&quot;/&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">hello</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s">&quot;Hello World!&quot;</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</code></pre></div>
+<p>This is a pretty straightforward example. You import the library, generate an app object,
+designate route handlers, etc. The API is very clean and easy to understand. For these
+reasons, I think Flask excels for small projects, but also for large ones (more on this
+shortly).</p>
+
+<p>The double-edged sword of Flask is its unopinionated nature. For beginners, this presents
+a relatively small surface area that they need to learn. Flask handles routing, has a
+templating library, and not much else. When it comes to security, database integration,
+and other aspects that larger apps require, it&#39;s up to the developer to determine what to
+use. Flask really doesn&#39;t care. This is good if you know what you&#39;re doing, but can be a
+bit intimidating if you&#39;re new to development. It&#39;s easy to make bad decisions due to
+inexperience.</p>
+
+<h2>Django</h2>
+
+<p>Django takes a very different approach. It&#39;s similar to Ruby on Rails -
+&quot;batteries-included&quot;. Pretty much everything is decided for you: the database ORM, routing,
+templating, etc. While this is great for getting an app up quickly, it&#39;s not very
+flexible. Swapping components, or using Django in a way besides a monolithic app can
+present some challenges. That said, it does a great job of presenting a working
+development pattern.</p>
+
+<p>The biggest downside is that, like Ruby on Rails, it requires the developers to learn a
+rather large system. You have to learn how to do things the &quot;Django way&quot;. Which isn&#39;t
+necessarily a bad thing. It just means that you&#39;ll generally have to focus on learning
+the system first, then building your app. No shortcuts. To make a point, the Flask example
+above tells you most of what you need to know. There is a short tutorial that goes through
+templating and some other features. Django is <strong>much</strong> more complicated, requiring a
+lengthy tutorial and likely some digging through documentation to understand all of what is
+going on.</p>
+
+<h2>Issues and Strengths</h2>
+
+<p>There are a few things surrounding the use of these frameworks worth mentioning. The
+Python2/Python3 divide is mostly resolved (you should probably use Python3 unless you
+have a specific reason not to). Django is very up-to-date with this. Since most of their
+components are specific to the Django ecosystem, they are all up-to-date and use Python3,
+assuming the version of Django you are using supports it.</p>
+
+<p>In contrast, while Flask <em>does</em> support Python 3, it&#39;s noted
+<a href="http://flask.pocoo.org/docs/0.10/python3/">on the website</a> that not all
+extensions do.</p>
+
+<p>Django also provides long-term support (LTS) releases. If you&#39;re using Django for a large
+application or simply in a large organization, these may be worth exploring for their
+stability.</p>
+
+<h2>Which should I use?</h2>
+
+<p>Both Flask and Django are great frameworks. Given their strengths and weaknesses, I&#39;d
+recommend the following path for someone wishing to learn web development in Python.</p>
+
+<p>First, learn Flask. It&#39;s pretty small, and most people should be able to wrap their brain
+around it fairly quickly. Follow the tutorial. Then, build a small app. It could be a list
+making app, a Twitter bot, whatever.</p>
+
+<p>Once you&#39;ve done that, go and learn Django. Build something larger with it: maybe a CMS.</p>
+
+<p>Finally, go back and learn how to build a similarly large application in Flask. This will
+require you to pick a number of libraries, understand how they fit together, their
+tradeoffs, etc.</p>
+
+<p>It&#39;s worth noting that these aren&#39;t the only web frameworks available for Python.
+<a href="https://github.com/vinta/awesome-python#web-frameworks">Far from it, actually</a>. Explore
+all of the options.</p>
+
+  <div>If you enjoyed this post, follow me on <a href="https://twitter.com/@_jneal_">
+      Twitter</a>!</div>
+  <div class="tags">
+    <span>Tags:</span>
+    <ul class="tag-list">
+      
+        <li>python</li>
+      
+        <li>flask</li>
+      
+        <li>django</li>
+      
+    </ul>
+  </div>
+</div>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new
+  Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-58478866-1', 'auto');
+          ga('send', 'pageview');
+
+          </script>
+
+  </body>
+</html>

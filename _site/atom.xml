@@ -4,7 +4,7 @@
  <title>Jeremy Neal</title>
  <link href="http://sdroadie.github.io/atom.xml" rel="self"/>
  <link href="http://sdroadie.github.io/"/>
- <updated>2015-08-19T09:28:15-04:00</updated>
+ <updated>2015-12-14T09:16:11-05:00</updated>
  <id>http://sdroadie.github.io</id>
  <author>
    <name>Jeremy Neal</name>
@@ -13,217 +13,204 @@
 
  
  <entry>
-   <title>Night Owl</title>
-   <link href="http://sdroadie.github.io/poem/2015/08/19/night-owl/"/>
-   <updated>2015-08-19T00:00:00-04:00</updated>
-   <id>http://sdroadie.github.io/poem/2015/08/19/night-owl</id>
-   <content type="html">&lt;p&gt;Tick.
-You keep 
-strange hours,
-fully alive when I&amp;#39;m
-barely awake.&lt;/p&gt;
+   <title>Flask vs. Django</title>
+   <link href="http://sdroadie.github.io/python/2015/12/03/flask-vs-django/"/>
+   <updated>2015-12-03T00:00:00-05:00</updated>
+   <id>http://sdroadie.github.io/python/2015/12/03/flask-vs-django</id>
+   <content type="html">&lt;p&gt;I really like Clojure. A lot. Since I&amp;#39;ve started using it seriously, I find myself going
+to it to solve most of my problems. My previous go-to language was Python. It has its
+share of issues (GIL, for example), but overall, it&amp;#39;s a joy to work in. Given its ease
+of use, it&amp;#39;s quite a popular language as well. As such, it&amp;#39;s pretty easy to find developers
+who know it, or are at least comfortable with it.&lt;/p&gt;
 
-&lt;p&gt;Tock.
-Vision 
-getting blurry,
-streetlights are the only thing
-I see
-for miles
-and miles 
-and miles.&lt;/p&gt;
+&lt;p&gt;As much as I like Clojure, developer onboarding is a concern when starting a new project.
+Some friends approached me to help them with an idea they had. They&amp;#39;re both non-technical,
+so any decisions in this realm were left up to me. I would have loved to use Clojure, but
+finding people to help develop their app would be a little harder. So I found myself
+looking at Python again. Based off my previous experience, I found myself looking at two
+web frameworks to build the backend: &lt;a href=&quot;http://flask.pocoo.org&quot;&gt;Flask&lt;/a&gt; and
+&lt;a href=&quot;https://www.djangoproject.com&quot;&gt;Django&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;This digital clock 
-shouldn&amp;#39;t 
-make a sound.
-TICK&lt;/p&gt;
+&lt;p&gt;I&amp;#39;m fairly familiar with Flask. I&amp;#39;ve used it to build big and small projects. I wasn&amp;#39;t
+particularly familiar with Django, so along with doing some tutorials/reading the
+documentation, I attended a few local Django meetups. The last one got cancelled, but
+I was supposed to give a talk comparing the two frameworks from my point of view. Since
+that meetup was cancelled, I&amp;#39;ve decided to write up a blog post instead. Note that this
+is all based off of my somewhat limited experience.&lt;/p&gt;
 
-&lt;p&gt;I think
-I&amp;#39;m almost there,
-wherever I was
-trying to
-TOCK
-be.&lt;/p&gt;
+&lt;h2&gt;Flask&lt;/h2&gt;
+
+&lt;p&gt;Flask is great. It&amp;#39;s a microframework written by &lt;a href=&quot;https://twitter.com/@mitsuhiko&quot;&gt;Armin Ronacher&lt;/a&gt;. I personally love it. It&amp;#39;s incredibly flexible and easy to use. A basic app, as
+seen on the Flask homepage is as simple as this:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;flask&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Flask&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;app&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Flask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;__name__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;nd&quot;&gt;@app.route&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;/&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;__name__&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;__main__&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This is a pretty straightforward example. You import the library, generate an app object,
+designate route handlers, etc. The API is very clean and easy to understand. For these
+reasons, I think Flask excels for small projects, but also for large ones (more on this
+shortly).&lt;/p&gt;
+
+&lt;p&gt;The double-edged sword of Flask is its unopinionated nature. For beginners, this presents
+a relatively small surface area that they need to learn. Flask handles routing, has a
+templating library, and not much else. When it comes to security, database integration,
+and other aspects that larger apps require, it&amp;#39;s up to the developer to determine what to
+use. Flask really doesn&amp;#39;t care. This is good if you know what you&amp;#39;re doing, but can be a
+bit intimidating if you&amp;#39;re new to development. It&amp;#39;s easy to make bad decisions due to
+inexperience.&lt;/p&gt;
+
+&lt;h2&gt;Django&lt;/h2&gt;
+
+&lt;p&gt;Django takes a very different approach. It&amp;#39;s similar to Ruby on Rails -
+&amp;quot;batteries-included&amp;quot;. Pretty much everything is decided for you: the database ORM, routing,
+templating, etc. While this is great for getting an app up quickly, it&amp;#39;s not very
+flexible. Swapping components, or using Django in a way besides a monolithic app can
+present some challenges. That said, it does a great job of presenting a working
+development pattern.&lt;/p&gt;
+
+&lt;p&gt;The biggest downside is that, like Ruby on Rails, it requires the developers to learn a
+rather large system. You have to learn how to do things the &amp;quot;Django way&amp;quot;. Which isn&amp;#39;t
+necessarily a bad thing. It just means that you&amp;#39;ll generally have to focus on learning
+the system first, then building your app. No shortcuts. To make a point, the Flask example
+above tells you most of what you need to know. There is a short tutorial that goes through
+templating and some other features. Django is &lt;strong&gt;much&lt;/strong&gt; more complicated, requiring a
+lengthy tutorial and likely some digging through documentation to understand all of what is
+going on.&lt;/p&gt;
+
+&lt;h2&gt;Issues and Strengths&lt;/h2&gt;
+
+&lt;p&gt;There are a few things surrounding the use of these frameworks worth mentioning. The
+Python2/Python3 divide is mostly resolved (you should probably use Python3 unless you
+have a specific reason not to). Django is very up-to-date with this. Since most of their
+components are specific to the Django ecosystem, they are all up-to-date and use Python3,
+assuming the version of Django you are using supports it.&lt;/p&gt;
+
+&lt;p&gt;In contrast, while Flask &lt;em&gt;does&lt;/em&gt; support Python 3, it&amp;#39;s noted
+&lt;a href=&quot;http://flask.pocoo.org/docs/0.10/python3/&quot;&gt;on the website&lt;/a&gt; that not all
+extensions do.&lt;/p&gt;
+
+&lt;p&gt;Django also provides long-term support (LTS) releases. If you&amp;#39;re using Django for a large
+application or simply in a large organization, these may be worth exploring for their
+stability.&lt;/p&gt;
+
+&lt;h2&gt;Which should I use?&lt;/h2&gt;
+
+&lt;p&gt;Both Flask and Django are great frameworks. Given their strengths and weaknesses, I&amp;#39;d
+recommend the following path for someone wishing to learn web development in Python.&lt;/p&gt;
+
+&lt;p&gt;First, learn Flask. It&amp;#39;s pretty small, and most people should be able to wrap their brain
+around it fairly quickly. Follow the tutorial. Then, build a small app. It could be a list
+making app, a Twitter bot, whatever.&lt;/p&gt;
+
+&lt;p&gt;Once you&amp;#39;ve done that, go and learn Django. Build something larger with it: maybe a CMS.&lt;/p&gt;
+
+&lt;p&gt;Finally, go back and learn how to build a similarly large application in Flask. This will
+require you to pick a number of libraries, understand how they fit together, their
+tradeoffs, etc.&lt;/p&gt;
+
+&lt;p&gt;It&amp;#39;s worth noting that these aren&amp;#39;t the only web frameworks available for Python.
+&lt;a href=&quot;https://github.com/vinta/awesome-python#web-frameworks&quot;&gt;Far from it, actually&lt;/a&gt;. Explore
+all of the options.&lt;/p&gt;
 </content>
  </entry>
  
  <entry>
-   <title>Gauze</title>
-   <link href="http://sdroadie.github.io/poem/2015/08/19/gauze/"/>
-   <updated>2015-08-19T00:00:00-04:00</updated>
-   <id>http://sdroadie.github.io/poem/2015/08/19/gauze</id>
-   <content type="html">&lt;p&gt;Hold this thread.
-TIGHTER!
-You&amp;#39;re doing it
-wrong.
-Why can&amp;#39;t you help
-me?!&lt;/p&gt;
+   <title>Compojure Lessons</title>
+   <link href="http://sdroadie.github.io/programming/2015/09/01/compojure-lessons/"/>
+   <updated>2015-09-01T00:00:00-04:00</updated>
+   <id>http://sdroadie.github.io/programming/2015/09/01/compojure-lessons</id>
+   <content type="html">&lt;p&gt;I recently had the opportunity to migrate a codebase for a work project from NodeJS and React to Clojure and Clojurescript. I&amp;#39;ve been trying to pick up Clojure for months now, but I find it difficult without a solid project. Since I started porting our code over, I feel that I&amp;#39;m understanding how to do things in this system at an impressive rate.&lt;/p&gt;
 
-&lt;p&gt;Fixing your broken bones
-and bruises
-with stitches
-and gauze.&lt;/p&gt;
+&lt;p&gt;That being said, I&amp;#39;ve hit a few issues along the way that I&amp;#39;d like to document, both for myself and for others. Some of these are specific to my tech stack, while others are likely general web stuff.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;I&lt;/strong&gt; know what I&amp;#39;m doing.
-Making you
-like me.
-A better version,
-next year&amp;#39;s model 
-today.&lt;/p&gt;
+&lt;h3&gt;Put your 404 handler last. Always.&lt;/h3&gt;
 
-&lt;p&gt;Stand up straight.
-Smile
-more.
-You&amp;#39;re less malleable 
-than clay
-but keep
-pushing
-until this
-breaks.&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Tell Me</title>
-   <link href="http://sdroadie.github.io/poem/2015/08/18/tell-me/"/>
-   <updated>2015-08-18T00:00:00-04:00</updated>
-   <id>http://sdroadie.github.io/poem/2015/08/18/tell-me</id>
-   <content type="html">&lt;p&gt;Tell me again, how is your pain more significant?&lt;/p&gt;
+&lt;p&gt;I spent the better part of an hour trying to figure out why I could access my index page, but not anything deeper in the app. Everything kept coming up as a 404. And not a Ring 404 page.&lt;/p&gt;
 
-&lt;p&gt;How is it more transcendent?&lt;/p&gt;
+&lt;p&gt;My code looked a bit like this.&lt;/p&gt;
 
-&lt;p&gt;Whisper to me.&lt;/p&gt;
+&lt;h4&gt;some-api.clj&lt;/h4&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-clojure&quot; data-lang=&quot;clojure&quot;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;ns &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;app.some-api&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:require&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;compojure.core&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:refer&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+              &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;compojure.route&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:as&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;route&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+              &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;compojure.handler&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:as&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;handler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]))&lt;/span&gt;
 
-&lt;p&gt;How do you feel more than do?
-How are you more sensitive?&lt;/p&gt;
+&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;defroutes&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;some-routes&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;/stuff&amp;quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:apples&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:oranges&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}))&lt;/span&gt;
 
-&lt;p&gt;Please flash before my eyes,
-why do despise me for going through what I do?&lt;/p&gt;
+&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;def &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;some-api&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;handler/api&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;some-routes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;interface.clj&lt;/h4&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-clojure&quot; data-lang=&quot;clojure&quot;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;ns &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;app.interface&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:require&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;compojure.core&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:refer&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+              &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;compojure.route&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:as&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;route&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+              &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;compojure.handler&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:as&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;handler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]))&lt;/span&gt;
 
-&lt;p&gt;Why is your experience more relevant?
-What about you makes it more true?&lt;/p&gt;
+&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;defroutes&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;interface-routes&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;/&amp;quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;route/not-found&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Not Found&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
 
-&lt;p&gt;Who are you to accuse me of making up feeling full,
-inflating my emotions?&lt;/p&gt;
+&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;def &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;interface&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;handler/site&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;interface-routes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;handler.clj&lt;/h4&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-clojure&quot; data-lang=&quot;clojure&quot;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;ns &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;app.handler&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:require&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;compojure.core&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:refer&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+              &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;compojure.route&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:as&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;route&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+              &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;app.some-api&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:refer&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;some-api&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;
+              &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;app.interface&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:refer&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;interface&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]))&lt;/span&gt;
 
-&lt;p&gt;Maybe everything happening to you
-is happening in a bubble of your own invention.&lt;/p&gt;
+ &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;def &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;app&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;routes&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;some-routes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The issue here is subtle, but obvious to the experienced developer. The 404 route is being injected into the app after the index route, but before anything else. Because routes are checked in sequence, the server checks index, fails, moves on to the 404 route, which acts as a catch-all. The fix is simple.&lt;/p&gt;
 
-&lt;p&gt;Perhaps everything you felt is a result
-of your acting and intention.&lt;/p&gt;
+&lt;h4&gt;handler.clj (FIXED)&lt;/h4&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-clojure&quot; data-lang=&quot;clojure&quot;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;ns &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;app.handler&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;def &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;app&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;routes&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;some-routes&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;interface&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;Handling raw POST data with Compojure.&lt;/h3&gt;
 
-&lt;p&gt;I refuse to produce an apology and
-recompense for that I feel truly.&lt;/p&gt;
+&lt;p&gt;I&amp;#39;m pretty new to Clojure. I&amp;#39;ve only been using it at work for about two weeks. It&amp;#39;s been a pleasant learning curve - the codebase looks quite a bit better, and is also much easier to reason about.&lt;/p&gt;
 
-&lt;p&gt;Maybe you should examine inside yourself
-and find why you feel empty.&lt;/p&gt;
+&lt;p&gt;I ran into one issue with getting raw POST data from a request using Compojure. I&amp;#39;m not familiar with the system yet, so I try to get something to work, then look it up on StackOverflow or something.&lt;/p&gt;
 
-&lt;p&gt;Try to devise a plan  to
-command the life that you want
-from what you&amp;#39;ve been handed.&lt;/p&gt;
+&lt;p&gt;Looking at the docs for Compojure, it seemed that the proper way of getting the data from a request is to get the &lt;code&gt;:params&lt;/code&gt; map from the request. However, due to passing raw data (I&amp;#39;m using &lt;a href=&quot;https://www.getpostman.com/&quot;&gt;Postman&lt;/a&gt; to test), this map was empty - everything was in the &lt;code&gt;:body&lt;/code&gt; map. It&amp;#39;s trivial to get the data out of this.&lt;/p&gt;
 
-&lt;p&gt;Provide a land that makes you feel
-fulfilled, complete, accepted, ready.&lt;/p&gt;
+&lt;h4&gt;Example&lt;/h4&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-clojure&quot; data-lang=&quot;clojure&quot;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;some-route&amp;quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;body&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;-&amp;gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;slurp &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;do-stuff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;Clojure vectors to JDBC Arrays (and know what version of JDBC you&amp;#39;re using).&lt;/h3&gt;
 
-&lt;p&gt;Ready to escape the world,
-escape the trail that you spin in endlessly.&lt;/p&gt;
+&lt;p&gt;In my data set, I need to store 3D geometry data. Using Postgres, I chose to do this by serializing mesh data (vertices, faces, etc.) to JSON (which Postgres lets you store!), and turning transform Vector3s into arrays. I initially attempted to write Postgres types around arrays to ensure that these transform components could only be arrays of length 3, but this ended up being more trouble than it was worth.&lt;/p&gt;
 
-&lt;p&gt;Find a plan to release your goals
-from the languid gentry.&lt;/p&gt;
+&lt;p&gt;Anyway, the issue I ran into was this: going from JSON to Clojure maps was simple (using &lt;code&gt;clojure.data.json&lt;/code&gt;) but inserting these Clojure data structures was an issue. Simple data types, like integers and strings, were automatically converted. Vectors were... not? I don&amp;#39;t actually know how they were being entered into Postgres, but the server kept spitting an error at me. It was stating that the number of expressions was greater than the number of columns. I inferred this to mean that vectors weren&amp;#39;t being converted into an acceptable form.&lt;/p&gt;
 
-&lt;p&gt;Perhaps you were never what you wanted to be,
-but why impose that on me?
-The need to be someone I am can&amp;#39;t be,
-a manufactured shadow of reality.&lt;/p&gt;
+&lt;p&gt;I figured out what I needed to do: translate these vectors to JDBC arrays. This process isn&amp;#39;t as streamlined as it could be, as you need to have an active JDBC connection to do the conversion. To be efficient, you need to do this in a transaction before you actually submit your query. That feels weird. But it isn&amp;#39;t even the problem. My problem is even simpler than that.&lt;/p&gt;
 
-&lt;p&gt;Let go, try to relax, sit back.
-Let it happen as it will.&lt;/p&gt;
+&lt;p&gt;My vectors were storing data as doubles. Spatial coordinates need to be as specific as possible, so highest precision is preferable. To convert vectors (or any Clojure seq) to a JDBC array, you need to call &lt;code&gt;.createArrayOf&lt;/code&gt;. ex. &lt;code&gt;(.createArrayOf conn &amp;quot;double&amp;quot; (into-array [...]))&lt;/code&gt;. The problem here is a versioning one. I&amp;#39;m using JDBCv4. All the documentation that came up when I searched for &amp;quot;JDBC array types&amp;quot; listed &lt;code&gt;double&lt;/code&gt; as an acceptable type. However, in JDBCv4, this was deprecated in favor of the &lt;code&gt;float&lt;/code&gt; type. So, my code needed to look like this: &lt;code&gt;(.createArrayOf conn &amp;quot;float&amp;quot; (into-array [...]))&lt;/code&gt;. And this took me longer to realize than I&amp;#39;m proud admitting.&lt;/p&gt;
 
-&lt;p&gt;Maybe you&amp;#39;ll find what you will,
-or maybe you&amp;#39;ll find hell.&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Odyssey</title>
-   <link href="http://sdroadie.github.io/poem/2015/08/18/odyssey/"/>
-   <updated>2015-08-18T00:00:00-04:00</updated>
-   <id>http://sdroadie.github.io/poem/2015/08/18/odyssey</id>
-   <content type="html">&lt;p&gt;Coasting on solar winds
-we search for respite among the stars.
-A planet to call home.
-A world to damage.&lt;/p&gt;
+&lt;h3&gt;Types are great.&lt;/h3&gt;
 
-&lt;p&gt;We left the last one to burn.
-Witness to mistakes and division.&lt;/p&gt;
+&lt;p&gt;PostgreSQL does pretty strong type checking. For a current project, I&amp;#39;m using the &lt;a href=&quot;https://github.com/krisajenkins/yesql&quot;&gt;Yesql&lt;/a&gt; to build my queries. The best part of this is that you can have casts in your queries, which makes passing data much easier. For example, I have one record type that describes a 3D mesh object. The schema is:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sql&quot; data-lang=&quot;sql&quot;&gt;&lt;span class=&quot;k&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;TABLE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mesh&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mesh_id&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;serial&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;primary&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mesh_data&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mesh_type&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mesh_t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The &lt;code&gt;mesh_t&lt;/code&gt; type is a simple enum type of strings representing primitive mesh types. Using casts, I can send my mesh type as a string, but have it typed in queries for safety.&lt;/p&gt;
 
-&lt;p&gt;The lights flicker aboard the doomed vessel.
-Reminding us that we can never escape ourselves.&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>LED</title>
-   <link href="http://sdroadie.github.io/poem/2015/08/18/led/"/>
-   <updated>2015-08-18T00:00:00-04:00</updated>
-   <id>http://sdroadie.github.io/poem/2015/08/18/led</id>
-   <content type="html">&lt;p&gt;This should feel tighter.
-This envelope
-Of darkness and warmth
-But it is fleeting.&lt;/p&gt;
-
-&lt;p&gt;A small light on a strange device beckons
-pulling me from pleasant dreams to worldly concerns.
-Events unfolding far away, 
-at the edges of natural perception.&lt;/p&gt;
-
-&lt;p&gt;Yet they tear you away from the shapeless void of slumber,
-unlikely to release.&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Burn</title>
-   <link href="http://sdroadie.github.io/poem/2015/08/18/burn/"/>
-   <updated>2015-08-18T00:00:00-04:00</updated>
-   <id>http://sdroadie.github.io/poem/2015/08/18/burn</id>
-   <content type="html">&lt;p&gt;Hand me the lighter.
-I need you to burn
-as I do.
-As we all do.
-First hot, fast, passionate.
-Then slow, smoldering, distant.&lt;/p&gt;
-
-&lt;p&gt;All I see in you is smoke.
-All you see in me are embers.
-A faint reminder of the warmth we once shared
-And the hopes we once held.&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Oklahoma</title>
-   <link href="http://sdroadie.github.io/poem/2015/08/17/ok/"/>
-   <updated>2015-08-17T00:00:00-04:00</updated>
-   <id>http://sdroadie.github.io/poem/2015/08/17/ok</id>
-   <content type="html">&lt;p&gt;Clear skies for miles
-but not a sight to see.
-Tongue burned and blinded
-by the hotel coffee.&lt;/p&gt;
-
-&lt;p&gt;Not half a world away from home
-yet it feels like another planet.
-So much space and time to fill,
-how do the locals manage?&lt;/p&gt;
-
-&lt;p&gt;Probably pessimistic
-or simply expecting more
-from life and all the places
-that I get to tour.&lt;/p&gt;
-
-&lt;p&gt;Maybe I should just sit back,
-and soak up what I can.
-It&amp;#39;s only a few days
-til I&amp;#39;m back in Maryland.&lt;/p&gt;
+&lt;p&gt;An example of this would be an insert. Such a query using Yesql would look like this:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sql&quot; data-lang=&quot;sql&quot;&gt;&lt;span class=&quot;k&quot;&gt;INSERT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;INTO&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mesh&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mesh_type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mesh_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;VALUES&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mesh_type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mesh_t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mesh_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;I&amp;#39;ll add other bits of knowledge and wisdom as I run into them. But that&amp;#39;s all for now.&lt;/p&gt;
 </content>
  </entry>
  
@@ -266,10 +253,7 @@ information, and I&amp;#39;d gladly pay for it.&lt;/p&gt;
    <id>http://sdroadie.github.io/2015/02/17/jekyll-deployment</id>
    <content type="html">&lt;p&gt;I like Jekyll. It&amp;#39;s a clean, simple piece of software that makes hosting blogs
 painless. I use it for this site, and some others as well. I just built a site
-for a friend &lt;strong&gt;(she&amp;#39;s an actress in the Baltimore area.
-Check &lt;a href=&quot;http://martharobichaud.com&quot;&gt;her&lt;/a&gt; out if that interests you)&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;NOTE: The site has since been switched to &lt;a href=&quot;https://www.squarespace.com&quot;&gt;Squarespace&lt;/a&gt;. However, the following guidance still works.&lt;/strong&gt;&lt;/p&gt;
+for a friend.&lt;/p&gt;
 
 &lt;p&gt;When I was building her site, the traditional route would have been to use 
 something like Wordpress or some other CMS, as she would need to edit content 
