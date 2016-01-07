@@ -4,13 +4,26 @@
  <title>Jeremy Neal</title>
  <link href="http://sdroadie.github.io/atom.xml" rel="self"/>
  <link href="http://sdroadie.github.io/"/>
- <updated>2015-12-14T09:16:11-05:00</updated>
+ <updated>2015-12-14T14:50:43-05:00</updated>
  <id>http://sdroadie.github.io</id>
  <author>
    <name>Jeremy Neal</name>
    <email>jneal1992@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Breaking down a logo (AKA geometry is dope!)</title>
+   <link href="http://sdroadie.github.io/design/2015/12/14/logo-breakdown/"/>
+   <updated>2015-12-14T00:00:00-05:00</updated>
+   <id>http://sdroadie.github.io/design/2015/12/14/logo-breakdown</id>
+   <content type="html">&lt;p&gt;An awesome cafe opened up near me recently. I go there a lot. One day, they were selling
+mugs that allow you to get $1 coffees forever. Couldn&amp;#39;t resist. They&amp;#39;re also really nice
+mugs. The artisan that makes them has a really cool logo. Looks like this.&lt;/p&gt;
+
+&lt;div class=&quot;canvas-container&quot; id=&quot;logo-complete&quot;&gt;&lt;/div&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Flask vs. Django</title>

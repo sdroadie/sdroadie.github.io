@@ -1,0 +1,8 @@
+.canvas-container {
+    display: block;
+    border: solid black 2px;
+    height: 15em;
+    width: 15em;
+    text-align: center;
+    margin: 2em auto;
+}
