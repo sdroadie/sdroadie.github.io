@@ -1,25 +1,24 @@
 # Dependencies
-markdown:            redcarpet
-highlighter:         pygments
+gems:                [jekyll-paginate]
 
 # Permalinks
 #
 # Use of `relative_permalinks` ensures post links from the index work properly.
 permalink:           pretty
-relative_permalinks: true
 
 # Setup
 title:               Jeremy Neal
 tagline:             'Software Developer'
-description:         "I'm a Baltimore-based software developer. I love programming in Ruby and Python mainly, though I always try to learn new skills."
+description:         "I'm a Baltimore-based software developer. I love programming Clojure and Python mainly, though I always try to learn new skills."
 url:                 http://sdroadie.github.io
 baseurl:             /
 paginate:            5
+paginate_path:      '/page-:num/'
 
 # About/contact
 author:
   name:              Jeremy Neal
-  twitter:           https://twitter.com/@_jneal_
+  twitter:           https://twitter.com/@waiting_hissing
   github:            https://github.com/sdroadie
   email:             jneal1992@gmail.com
 

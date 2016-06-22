@@ -4,7 +4,7 @@
  <title>Jeremy Neal</title>
  <link href="http://sdroadie.github.io/atom.xml" rel="self"/>
  <link href="http://sdroadie.github.io/"/>
- <updated>2015-12-14T14:50:43-05:00</updated>
+ <updated>2016-06-22T18:58:42-04:00</updated>
  <id>http://sdroadie.github.io</id>
  <author>
    <name>Jeremy Neal</name>
@@ -13,58 +13,47 @@
 
  
  <entry>
-   <title>Breaking down a logo (AKA geometry is dope!)</title>
-   <link href="http://sdroadie.github.io/design/2015/12/14/logo-breakdown/"/>
-   <updated>2015-12-14T00:00:00-05:00</updated>
-   <id>http://sdroadie.github.io/design/2015/12/14/logo-breakdown</id>
-   <content type="html">&lt;p&gt;An awesome cafe opened up near me recently. I go there a lot. One day, they were selling
-mugs that allow you to get $1 coffees forever. Couldn&amp;#39;t resist. They&amp;#39;re also really nice
-mugs. The artisan that makes them has a really cool logo. Looks like this.&lt;/p&gt;
-
-&lt;div class=&quot;canvas-container&quot; id=&quot;logo-complete&quot;&gt;&lt;/div&gt;
-</content>
- </entry>
- 
- <entry>
    <title>Flask vs. Django</title>
    <link href="http://sdroadie.github.io/python/2015/12/03/flask-vs-django/"/>
    <updated>2015-12-03T00:00:00-05:00</updated>
    <id>http://sdroadie.github.io/python/2015/12/03/flask-vs-django</id>
-   <content type="html">&lt;p&gt;I really like Clojure. A lot. Since I&amp;#39;ve started using it seriously, I find myself going
+   <content type="html">&lt;p&gt;I really like Clojure. A lot. Since I’ve started using it seriously, I find myself going
 to it to solve most of my problems. My previous go-to language was Python. It has its
-share of issues (GIL, for example), but overall, it&amp;#39;s a joy to work in. Given its ease
-of use, it&amp;#39;s quite a popular language as well. As such, it&amp;#39;s pretty easy to find developers
+share of issues (GIL, for example), but overall, it’s a joy to work in. Given its ease
+of use, it’s quite a popular language as well. As such, it’s pretty easy to find developers
 who know it, or are at least comfortable with it.&lt;/p&gt;
 
 &lt;p&gt;As much as I like Clojure, developer onboarding is a concern when starting a new project.
-Some friends approached me to help them with an idea they had. They&amp;#39;re both non-technical,
+Some friends approached me to help them with an idea they had. They’re both non-technical,
 so any decisions in this realm were left up to me. I would have loved to use Clojure, but
 finding people to help develop their app would be a little harder. So I found myself
 looking at Python again. Based off my previous experience, I found myself looking at two
 web frameworks to build the backend: &lt;a href=&quot;http://flask.pocoo.org&quot;&gt;Flask&lt;/a&gt; and
 &lt;a href=&quot;https://www.djangoproject.com&quot;&gt;Django&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;I&amp;#39;m fairly familiar with Flask. I&amp;#39;ve used it to build big and small projects. I wasn&amp;#39;t
+&lt;p&gt;I’m fairly familiar with Flask. I’ve used it to build big and small projects. I wasn’t
 particularly familiar with Django, so along with doing some tutorials/reading the
 documentation, I attended a few local Django meetups. The last one got cancelled, but
 I was supposed to give a talk comparing the two frameworks from my point of view. Since
-that meetup was cancelled, I&amp;#39;ve decided to write up a blog post instead. Note that this
+that meetup was cancelled, I’ve decided to write up a blog post instead. Note that this
 is all based off of my somewhat limited experience.&lt;/p&gt;
 
-&lt;h2&gt;Flask&lt;/h2&gt;
-
-&lt;p&gt;Flask is great. It&amp;#39;s a microframework written by &lt;a href=&quot;https://twitter.com/@mitsuhiko&quot;&gt;Armin Ronacher&lt;/a&gt;. I personally love it. It&amp;#39;s incredibly flexible and easy to use. A basic app, as
+&lt;h2 id=&quot;flask&quot;&gt;Flask&lt;/h2&gt;
+&lt;p&gt;Flask is great. It’s a microframework written by &lt;a href=&quot;https://twitter.com/@mitsuhiko&quot;&gt;Armin Ronacher&lt;/a&gt;. I personally love it. It’s incredibly flexible and easy to use. A basic app, as
 seen on the Flask homepage is as simple as this:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;flask&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Flask&lt;/span&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;flask&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Flask&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;app&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Flask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;__name__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
-&lt;span class=&quot;nd&quot;&gt;@app.route&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;/&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@app.route&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Hello World!&quot;&lt;/span&gt;
 
-&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;__name__&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;__main__&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;__name__&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;__main__&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
 &lt;p&gt;This is a pretty straightforward example. You import the library, generate an app object,
 designate route handlers, etc. The API is very clean and easy to understand. For these
 reasons, I think Flask excels for small projects, but also for large ones (more on this
@@ -73,61 +62,58 @@ shortly).&lt;/p&gt;
 &lt;p&gt;The double-edged sword of Flask is its unopinionated nature. For beginners, this presents
 a relatively small surface area that they need to learn. Flask handles routing, has a
 templating library, and not much else. When it comes to security, database integration,
-and other aspects that larger apps require, it&amp;#39;s up to the developer to determine what to
-use. Flask really doesn&amp;#39;t care. This is good if you know what you&amp;#39;re doing, but can be a
-bit intimidating if you&amp;#39;re new to development. It&amp;#39;s easy to make bad decisions due to
+and other aspects that larger apps require, it’s up to the developer to determine what to
+use. Flask really doesn’t care. This is good if you know what you’re doing, but can be a
+bit intimidating if you’re new to development. It’s easy to make bad decisions due to
 inexperience.&lt;/p&gt;
 
-&lt;h2&gt;Django&lt;/h2&gt;
-
-&lt;p&gt;Django takes a very different approach. It&amp;#39;s similar to Ruby on Rails -
-&amp;quot;batteries-included&amp;quot;. Pretty much everything is decided for you: the database ORM, routing,
-templating, etc. While this is great for getting an app up quickly, it&amp;#39;s not very
+&lt;h2 id=&quot;django&quot;&gt;Django&lt;/h2&gt;
+&lt;p&gt;Django takes a very different approach. It’s similar to Ruby on Rails -
+“batteries-included”. Pretty much everything is decided for you: the database ORM, routing,
+templating, etc. While this is great for getting an app up quickly, it’s not very
 flexible. Swapping components, or using Django in a way besides a monolithic app can
 present some challenges. That said, it does a great job of presenting a working
 development pattern.&lt;/p&gt;
 
 &lt;p&gt;The biggest downside is that, like Ruby on Rails, it requires the developers to learn a
-rather large system. You have to learn how to do things the &amp;quot;Django way&amp;quot;. Which isn&amp;#39;t
-necessarily a bad thing. It just means that you&amp;#39;ll generally have to focus on learning
+rather large system. You have to learn how to do things the “Django way”. Which isn’t
+necessarily a bad thing. It just means that you’ll generally have to focus on learning
 the system first, then building your app. No shortcuts. To make a point, the Flask example
 above tells you most of what you need to know. There is a short tutorial that goes through
 templating and some other features. Django is &lt;strong&gt;much&lt;/strong&gt; more complicated, requiring a
 lengthy tutorial and likely some digging through documentation to understand all of what is
 going on.&lt;/p&gt;
 
-&lt;h2&gt;Issues and Strengths&lt;/h2&gt;
-
+&lt;h2 id=&quot;issues-and-strengths&quot;&gt;Issues and Strengths&lt;/h2&gt;
 &lt;p&gt;There are a few things surrounding the use of these frameworks worth mentioning. The
 Python2/Python3 divide is mostly resolved (you should probably use Python3 unless you
 have a specific reason not to). Django is very up-to-date with this. Since most of their
 components are specific to the Django ecosystem, they are all up-to-date and use Python3,
 assuming the version of Django you are using supports it.&lt;/p&gt;
 
-&lt;p&gt;In contrast, while Flask &lt;em&gt;does&lt;/em&gt; support Python 3, it&amp;#39;s noted
+&lt;p&gt;In contrast, while Flask &lt;em&gt;does&lt;/em&gt; support Python 3, it’s noted
 &lt;a href=&quot;http://flask.pocoo.org/docs/0.10/python3/&quot;&gt;on the website&lt;/a&gt; that not all
 extensions do.&lt;/p&gt;
 
-&lt;p&gt;Django also provides long-term support (LTS) releases. If you&amp;#39;re using Django for a large
+&lt;p&gt;Django also provides long-term support (LTS) releases. If you’re using Django for a large
 application or simply in a large organization, these may be worth exploring for their
 stability.&lt;/p&gt;
 
-&lt;h2&gt;Which should I use?&lt;/h2&gt;
-
-&lt;p&gt;Both Flask and Django are great frameworks. Given their strengths and weaknesses, I&amp;#39;d
+&lt;h2 id=&quot;which-should-i-use&quot;&gt;Which should I use?&lt;/h2&gt;
+&lt;p&gt;Both Flask and Django are great frameworks. Given their strengths and weaknesses, I’d
 recommend the following path for someone wishing to learn web development in Python.&lt;/p&gt;
 
-&lt;p&gt;First, learn Flask. It&amp;#39;s pretty small, and most people should be able to wrap their brain
+&lt;p&gt;First, learn Flask. It’s pretty small, and most people should be able to wrap their brain
 around it fairly quickly. Follow the tutorial. Then, build a small app. It could be a list
 making app, a Twitter bot, whatever.&lt;/p&gt;
 
-&lt;p&gt;Once you&amp;#39;ve done that, go and learn Django. Build something larger with it: maybe a CMS.&lt;/p&gt;
+&lt;p&gt;Once you’ve done that, go and learn Django. Build something larger with it: maybe a CMS.&lt;/p&gt;
 
 &lt;p&gt;Finally, go back and learn how to build a similarly large application in Flask. This will
 require you to pick a number of libraries, understand how they fit together, their
 tradeoffs, etc.&lt;/p&gt;
 
-&lt;p&gt;It&amp;#39;s worth noting that these aren&amp;#39;t the only web frameworks available for Python.
+&lt;p&gt;It’s worth noting that these aren’t the only web frameworks available for Python.
 &lt;a href=&quot;https://github.com/vinta/awesome-python#web-frameworks&quot;&gt;Far from it, actually&lt;/a&gt;. Explore
 all of the options.&lt;/p&gt;
 </content>
@@ -138,92 +124,104 @@ all of the options.&lt;/p&gt;
    <link href="http://sdroadie.github.io/programming/2015/09/01/compojure-lessons/"/>
    <updated>2015-09-01T00:00:00-04:00</updated>
    <id>http://sdroadie.github.io/programming/2015/09/01/compojure-lessons</id>
-   <content type="html">&lt;p&gt;I recently had the opportunity to migrate a codebase for a work project from NodeJS and React to Clojure and Clojurescript. I&amp;#39;ve been trying to pick up Clojure for months now, but I find it difficult without a solid project. Since I started porting our code over, I feel that I&amp;#39;m understanding how to do things in this system at an impressive rate.&lt;/p&gt;
+   <content type="html">&lt;p&gt;I recently had the opportunity to migrate a codebase for a work project from NodeJS and React to Clojure and Clojurescript. I’ve been trying to pick up Clojure for months now, but I find it difficult without a solid project. Since I started porting our code over, I feel that I’m understanding how to do things in this system at an impressive rate.&lt;/p&gt;
 
-&lt;p&gt;That being said, I&amp;#39;ve hit a few issues along the way that I&amp;#39;d like to document, both for myself and for others. Some of these are specific to my tech stack, while others are likely general web stuff.&lt;/p&gt;
+&lt;p&gt;That being said, I’ve hit a few issues along the way that I’d like to document, both for myself and for others. Some of these are specific to my tech stack, while others are likely general web stuff.&lt;/p&gt;
 
-&lt;h3&gt;Put your 404 handler last. Always.&lt;/h3&gt;
-
+&lt;h3 id=&quot;put-your-404-handler-last-always&quot;&gt;Put your 404 handler last. Always.&lt;/h3&gt;
 &lt;p&gt;I spent the better part of an hour trying to figure out why I could access my index page, but not anything deeper in the app. Everything kept coming up as a 404. And not a Ring 404 page.&lt;/p&gt;
 
 &lt;p&gt;My code looked a bit like this.&lt;/p&gt;
 
-&lt;h4&gt;some-api.clj&lt;/h4&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-clojure&quot; data-lang=&quot;clojure&quot;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;ns &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;app.some-api&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:require&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;compojure.core&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:refer&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-              &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;compojure.route&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:as&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;route&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-              &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;compojure.handler&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:as&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;handler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]))&lt;/span&gt;
+&lt;h4 id=&quot;some-apiclj&quot;&gt;some-api.clj&lt;/h4&gt;
+&lt;div class=&quot;language-clojure highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ns&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;app.some-api&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+	&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;:require&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;compojure.core&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;no&quot;&gt;:refer&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;no&quot;&gt;:all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    		  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;compojure.route&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;no&quot;&gt;:as&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;route&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+              &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;compojure.handler&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;no&quot;&gt;:as&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;handler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]))&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+              
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;defroutes&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;some-routes&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+	&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/stuff&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;:apples&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;no&quot;&gt;:oranges&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}))&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;some-api&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+	&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;handler/api&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;some-routes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
-&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;defroutes&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;some-routes&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;/stuff&amp;quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:apples&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:oranges&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}))&lt;/span&gt;
+&lt;h4 id=&quot;interfaceclj&quot;&gt;interface.clj&lt;/h4&gt;
+&lt;div class=&quot;language-clojure highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ns&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;app.interface&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+	&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;:require&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;compojure.core&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;no&quot;&gt;:refer&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;no&quot;&gt;:all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    		  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;compojure.route&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;no&quot;&gt;:as&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;route&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+              &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;compojure.handler&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;no&quot;&gt;:as&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;handler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]))&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+              
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;defroutes&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;interface-routes&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+	&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hello World!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;route/not-found&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Not Found&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;interface&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+	&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;handler/site&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;interface-routes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
-&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;def &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;some-api&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;handler/api&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;some-routes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h4&gt;interface.clj&lt;/h4&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-clojure&quot; data-lang=&quot;clojure&quot;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;ns &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;app.interface&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:require&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;compojure.core&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:refer&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-              &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;compojure.route&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:as&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;route&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-              &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;compojure.handler&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:as&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;handler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]))&lt;/span&gt;
+&lt;h4 id=&quot;handlerclj&quot;&gt;handler.clj&lt;/h4&gt;
+&lt;div class=&quot;language-clojure highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ns&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;app.handler&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+	&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;:require&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;compojure.core&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;no&quot;&gt;:refer&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;no&quot;&gt;:all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    		  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;compojure.route&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;no&quot;&gt;:as&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;route&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+              &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;app.some-api&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;no&quot;&gt;:refer&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;some-api&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+              &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;app.interface&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;no&quot;&gt;:refer&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;interface&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]))&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+              
+ &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+ 	&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;routes&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;interface&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;some-routes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
-&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;defroutes&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;interface-routes&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;/&amp;quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;route/not-found&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Not Found&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-
-&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;def &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;interface&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;handler/site&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;interface-routes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h4&gt;handler.clj&lt;/h4&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-clojure&quot; data-lang=&quot;clojure&quot;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;ns &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;app.handler&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:require&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;compojure.core&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:refer&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-              &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;compojure.route&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:as&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;route&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-              &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;app.some-api&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:refer&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;some-api&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;
-              &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;app.interface&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:refer&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;interface&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]))&lt;/span&gt;
-
- &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;def &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;app&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;routes&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;some-routes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;The issue here is subtle, but obvious to the experienced developer. The 404 route is being injected into the app after the index route, but before anything else. Because routes are checked in sequence, the server checks index, fails, moves on to the 404 route, which acts as a catch-all. The fix is simple.&lt;/p&gt;
 
-&lt;h4&gt;handler.clj (FIXED)&lt;/h4&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-clojure&quot; data-lang=&quot;clojure&quot;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;ns &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;app.handler&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;...&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;def &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;app&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;routes&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;some-routes&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;interface&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;Handling raw POST data with Compojure.&lt;/h3&gt;
+&lt;h4 id=&quot;handlerclj-fixed&quot;&gt;handler.clj (FIXED)&lt;/h4&gt;
+&lt;div class=&quot;language-clojure highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ns&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;app.handler&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+	&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;routes&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;some-routes&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;interface&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
-&lt;p&gt;I&amp;#39;m pretty new to Clojure. I&amp;#39;ve only been using it at work for about two weeks. It&amp;#39;s been a pleasant learning curve - the codebase looks quite a bit better, and is also much easier to reason about.&lt;/p&gt;
+&lt;h3 id=&quot;handling-raw-post-data-with-compojure&quot;&gt;Handling raw POST data with Compojure.&lt;/h3&gt;
+&lt;p&gt;I’m pretty new to Clojure. I’ve only been using it at work for about two weeks. It’s been a pleasant learning curve - the codebase looks quite a bit better, and is also much easier to reason about.&lt;/p&gt;
 
-&lt;p&gt;I ran into one issue with getting raw POST data from a request using Compojure. I&amp;#39;m not familiar with the system yet, so I try to get something to work, then look it up on StackOverflow or something.&lt;/p&gt;
+&lt;p&gt;I ran into one issue with getting raw POST data from a request using Compojure. I’m not familiar with the system yet, so I try to get something to work, then look it up on StackOverflow or something.&lt;/p&gt;
 
-&lt;p&gt;Looking at the docs for Compojure, it seemed that the proper way of getting the data from a request is to get the &lt;code&gt;:params&lt;/code&gt; map from the request. However, due to passing raw data (I&amp;#39;m using &lt;a href=&quot;https://www.getpostman.com/&quot;&gt;Postman&lt;/a&gt; to test), this map was empty - everything was in the &lt;code&gt;:body&lt;/code&gt; map. It&amp;#39;s trivial to get the data out of this.&lt;/p&gt;
+&lt;p&gt;Looking at the docs for Compojure, it seemed that the proper way of getting the data from a request is to get the &lt;code class=&quot;highlighter-rouge&quot;&gt;:params&lt;/code&gt; map from the request. However, due to passing raw data (I’m using &lt;a href=&quot;https://www.getpostman.com/&quot;&gt;Postman&lt;/a&gt; to test), this map was empty - everything was in the &lt;code class=&quot;highlighter-rouge&quot;&gt;:body&lt;/code&gt; map. It’s trivial to get the data out of this.&lt;/p&gt;
 
-&lt;h4&gt;Example&lt;/h4&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-clojure&quot; data-lang=&quot;clojure&quot;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;some-route&amp;quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;body&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-      &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;-&amp;gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;slurp &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;do-stuff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;Clojure vectors to JDBC Arrays (and know what version of JDBC you&amp;#39;re using).&lt;/h3&gt;
+&lt;h4 id=&quot;example&quot;&gt;Example&lt;/h4&gt;
+&lt;div class=&quot;language-clojure highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;POST&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;some-route&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;no&quot;&gt;:body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;slurp&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;do-stuff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
+&lt;h3 id=&quot;clojure-vectors-to-jdbc-arrays-and-know-what-version-of-jdbc-youre-using&quot;&gt;Clojure vectors to JDBC Arrays (and know what version of JDBC you’re using).&lt;/h3&gt;
 &lt;p&gt;In my data set, I need to store 3D geometry data. Using Postgres, I chose to do this by serializing mesh data (vertices, faces, etc.) to JSON (which Postgres lets you store!), and turning transform Vector3s into arrays. I initially attempted to write Postgres types around arrays to ensure that these transform components could only be arrays of length 3, but this ended up being more trouble than it was worth.&lt;/p&gt;
 
-&lt;p&gt;Anyway, the issue I ran into was this: going from JSON to Clojure maps was simple (using &lt;code&gt;clojure.data.json&lt;/code&gt;) but inserting these Clojure data structures was an issue. Simple data types, like integers and strings, were automatically converted. Vectors were... not? I don&amp;#39;t actually know how they were being entered into Postgres, but the server kept spitting an error at me. It was stating that the number of expressions was greater than the number of columns. I inferred this to mean that vectors weren&amp;#39;t being converted into an acceptable form.&lt;/p&gt;
+&lt;p&gt;Anyway, the issue I ran into was this: going from JSON to Clojure maps was simple (using &lt;code class=&quot;highlighter-rouge&quot;&gt;clojure.data.json&lt;/code&gt;) but inserting these Clojure data structures was an issue. Simple data types, like integers and strings, were automatically converted. Vectors were… not? I don’t actually know how they were being entered into Postgres, but the server kept spitting an error at me. It was stating that the number of expressions was greater than the number of columns. I inferred this to mean that vectors weren’t being converted into an acceptable form.&lt;/p&gt;
 
-&lt;p&gt;I figured out what I needed to do: translate these vectors to JDBC arrays. This process isn&amp;#39;t as streamlined as it could be, as you need to have an active JDBC connection to do the conversion. To be efficient, you need to do this in a transaction before you actually submit your query. That feels weird. But it isn&amp;#39;t even the problem. My problem is even simpler than that.&lt;/p&gt;
+&lt;p&gt;I figured out what I needed to do: translate these vectors to JDBC arrays. This process isn’t as streamlined as it could be, as you need to have an active JDBC connection to do the conversion. To be efficient, you need to do this in a transaction before you actually submit your query. That feels weird. But it isn’t even the problem. My problem is even simpler than that.&lt;/p&gt;
 
-&lt;p&gt;My vectors were storing data as doubles. Spatial coordinates need to be as specific as possible, so highest precision is preferable. To convert vectors (or any Clojure seq) to a JDBC array, you need to call &lt;code&gt;.createArrayOf&lt;/code&gt;. ex. &lt;code&gt;(.createArrayOf conn &amp;quot;double&amp;quot; (into-array [...]))&lt;/code&gt;. The problem here is a versioning one. I&amp;#39;m using JDBCv4. All the documentation that came up when I searched for &amp;quot;JDBC array types&amp;quot; listed &lt;code&gt;double&lt;/code&gt; as an acceptable type. However, in JDBCv4, this was deprecated in favor of the &lt;code&gt;float&lt;/code&gt; type. So, my code needed to look like this: &lt;code&gt;(.createArrayOf conn &amp;quot;float&amp;quot; (into-array [...]))&lt;/code&gt;. And this took me longer to realize than I&amp;#39;m proud admitting.&lt;/p&gt;
+&lt;p&gt;My vectors were storing data as doubles. Spatial coordinates need to be as specific as possible, so highest precision is preferable. To convert vectors (or any Clojure seq) to a JDBC array, you need to call &lt;code class=&quot;highlighter-rouge&quot;&gt;.createArrayOf&lt;/code&gt;. ex. &lt;code class=&quot;highlighter-rouge&quot;&gt;(.createArrayOf conn &quot;double&quot; (into-array [...]))&lt;/code&gt;. The problem here is a versioning one. I’m using JDBCv4. All the documentation that came up when I searched for “JDBC array types” listed &lt;code class=&quot;highlighter-rouge&quot;&gt;double&lt;/code&gt; as an acceptable type. However, in JDBCv4, this was deprecated in favor of the &lt;code class=&quot;highlighter-rouge&quot;&gt;float&lt;/code&gt; type. So, my code needed to look like this: &lt;code class=&quot;highlighter-rouge&quot;&gt;(.createArrayOf conn &quot;float&quot; (into-array [...]))&lt;/code&gt;. And this took me longer to realize than I’m proud admitting.&lt;/p&gt;
 
-&lt;h3&gt;Types are great.&lt;/h3&gt;
+&lt;h3 id=&quot;types-are-great&quot;&gt;Types are great.&lt;/h3&gt;
+&lt;p&gt;PostgreSQL does pretty strong type checking. For a current project, I’m using the &lt;a href=&quot;https://github.com/krisajenkins/yesql&quot;&gt;Yesql&lt;/a&gt; to build my queries. The best part of this is that you can have casts in your queries, which makes passing data much easier. For example, I have one record type that describes a 3D mesh object. The schema is:&lt;/p&gt;
 
-&lt;p&gt;PostgreSQL does pretty strong type checking. For a current project, I&amp;#39;m using the &lt;a href=&quot;https://github.com/krisajenkins/yesql&quot;&gt;Yesql&lt;/a&gt; to build my queries. The best part of this is that you can have casts in your queries, which makes passing data much easier. For example, I have one record type that describes a 3D mesh object. The schema is:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sql&quot; data-lang=&quot;sql&quot;&gt;&lt;span class=&quot;k&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;TABLE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mesh&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mesh_id&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;serial&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;primary&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mesh_data&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mesh_type&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mesh_t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;The &lt;code&gt;mesh_t&lt;/code&gt; type is a simple enum type of strings representing primitive mesh types. Using casts, I can send my mesh type as a string, but have it typed in queries for safety.&lt;/p&gt;
+&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;TABLE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mesh&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mesh_id&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;serial&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;primary&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mesh_data&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mesh_type&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mesh_t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;mesh_t&lt;/code&gt; type is a simple enum type of strings representing primitive mesh types. Using casts, I can send my mesh type as a string, but have it typed in queries for safety.&lt;/p&gt;
 
 &lt;p&gt;An example of this would be an insert. Such a query using Yesql would look like this:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sql&quot; data-lang=&quot;sql&quot;&gt;&lt;span class=&quot;k&quot;&gt;INSERT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;INTO&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mesh&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mesh_type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mesh_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;VALUES&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mesh_type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mesh_t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mesh_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;I&amp;#39;ll add other bits of knowledge and wisdom as I run into them. But that&amp;#39;s all for now.&lt;/p&gt;
+
+&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;INSERT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;INTO&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mesh&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mesh_type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mesh_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;VALUES&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mesh_type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mesh_t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mesh_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;I’ll add other bits of knowledge and wisdom as I run into them. But that’s all for now.&lt;/p&gt;
 </content>
  </entry>
  
@@ -232,15 +230,15 @@ all of the options.&lt;/p&gt;
    <link href="http://sdroadie.github.io/app%20design/2015/02/24/todo-idea/"/>
    <updated>2015-02-24T00:00:00-05:00</updated>
    <id>http://sdroadie.github.io/app%20design/2015/02/24/todo-idea</id>
-   <content type="html">&lt;p&gt;I&amp;#39;ve been learning Clojure lately. It does a lot of things right as a languages.
-But I don&amp;#39;t think we should stop there. The same principles that make a good
+   <content type="html">&lt;p&gt;I’ve been learning Clojure lately. It does a lot of things right as a languages.
+But I don’t think we should stop there. The same principles that make a good
 language could be applied to application design.&lt;/p&gt;
 
 &lt;p&gt;One thing that has bothered me since I got a smartphone is the number of to-do
 apps. Building a to-do app is a great way to learn most web frameworks (and
-probably mobile ones too?), but that doesn&amp;#39;t mean they need to all be published.
+probably mobile ones too?), but that doesn’t mean they need to all be published.
 Worse still is the fact that very few of them do anything novel. Simple design
-and ease of use is great, but we aren&amp;#39;t creating anymore of an experience that
+and ease of use is great, but we aren’t creating anymore of an experience that
 pen and paper.&lt;/p&gt;
 
 &lt;p&gt;My idea is this: let the user control their data. In my personal day, I need to
@@ -253,9 +251,9 @@ to the same things (milk, bread, eggs, etc.) week to week. Being able to have
 recurring items would be fantastic.&lt;/p&gt;
 
 &lt;p&gt;I know that all of these things are available in a number of different apps. But
-that&amp;#39;s the crux of the problem: why do I need so many different apps to handle
+that’s the crux of the problem: why do I need so many different apps to handle
 day to day life? Give me one to-do app that puts me in control of my
-information, and I&amp;#39;d gladly pay for it.&lt;/p&gt;
+information, and I’d gladly pay for it.&lt;/p&gt;
 </content>
  </entry>
  
@@ -264,32 +262,30 @@ information, and I&amp;#39;d gladly pay for it.&lt;/p&gt;
    <link href="http://sdroadie.github.io/2015/02/17/jekyll-deployment/"/>
    <updated>2015-02-17T00:00:00-05:00</updated>
    <id>http://sdroadie.github.io/2015/02/17/jekyll-deployment</id>
-   <content type="html">&lt;p&gt;I like Jekyll. It&amp;#39;s a clean, simple piece of software that makes hosting blogs
+   <content type="html">&lt;p&gt;I like Jekyll. It’s a clean, simple piece of software that makes hosting blogs
 painless. I use it for this site, and some others as well. I just built a site
 for a friend.&lt;/p&gt;
 
 &lt;p&gt;When I was building her site, the traditional route would have been to use 
 something like Wordpress or some other CMS, as she would need to edit content 
-after the fact. Alternatively, I could implement my own CMS for her. I didn&amp;#39;t 
+after the fact. Alternatively, I could implement my own CMS for her. I didn’t 
 like either of these options. I really dislike Wordpress for a number of 
-reasons, and I don&amp;#39;t have the time to write such a complicated system, as I&amp;#39;m
-in my last semester of my bachelor&amp;#39;s. Instead, I chose to use Jekyll.&lt;/p&gt;
+reasons, and I don’t have the time to write such a complicated system, as I’m
+in my last semester of my bachelor’s. Instead, I chose to use Jekyll.&lt;/p&gt;
 
-&lt;p&gt;For the most part, Jekyll was fine, aside from the user-friendliness. She&amp;#39;s not
+&lt;p&gt;For the most part, Jekyll was fine, aside from the user-friendliness. She’s not
 a developer, and expecting her to use the command-line would have been absurd.
-So here&amp;#39;s what I did to get her site up and running.&lt;/p&gt;
+So here’s what I did to get her site up and running.&lt;/p&gt;
 
-&lt;h2&gt;Create a Github repo.&lt;/h2&gt;
-
-&lt;p&gt;There&amp;#39;s nothing particularly private on her site, putting everything in a public
+&lt;h2 id=&quot;create-a-github-repo&quot;&gt;Create a Github repo.&lt;/h2&gt;
+&lt;p&gt;There’s nothing particularly private on her site, putting everything in a public
 Github repo was easiest.&lt;/p&gt;
 
-&lt;h2&gt;Deploy with Travis CI.&lt;/h2&gt;
-
+&lt;h2 id=&quot;deploy-with-travis-ci&quot;&gt;Deploy with Travis CI.&lt;/h2&gt;
 &lt;p&gt;This website could have been hosted on Github pages, but for particular reasons,
 I chose to host her site on Namecheap. This makes the build process more
 complicated. On the &lt;a href=&quot;http://jekyllrb.com/docs/deployment-methods/&quot;&gt;Jekyll&lt;/a&gt; site,
-they list a number of ways of deploying. Since I didn&amp;#39;t want her to have to
+they list a number of ways of deploying. Since I didn’t want her to have to
 touch any of the tools, I chose to deploy with &lt;a href=&quot;http://travis-ci.org&quot;&gt;Travis CI&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;The setup for this was pretty easy, but I ran into a few problems that might not
@@ -304,22 +300,27 @@ credentials for deployment.&lt;/p&gt;
 &lt;p&gt;In my case, I needed to include my FTP username and password. After installing
 the Travis gem, running the following commands encrypts your keys and stores
 them in .travis.yml, allowing you to call them without exposing them:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;travis encrypt --add &lt;span class=&quot;nv&quot;&gt;FTP_USER&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;ftp_username
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;travis encrypt --add &lt;span class=&quot;nv&quot;&gt;FTP_USER&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;ftp_username
 travis encrypt --add &lt;span class=&quot;nv&quot;&gt;FTP_PASSWORD&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;FTP_PASSWORD
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
 &lt;p&gt;Within your build instructions, you can call these values by name. I did just
 this to deploy the _site directory to the web host.&lt;/p&gt;
 
 &lt;p&gt;In the after_success section of .travis.yml, add the following command:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ./_site &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; find . -type f -exec curl -u &lt;span class=&quot;nv&quot;&gt;$FTP_SUSER&lt;/span&gt;:&lt;span class=&quot;nv&quot;&gt;$FTP_PASSWORD&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ./_site &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; find . -type f -exec curl -u &lt;span class=&quot;nv&quot;&gt;$FTP_SUSER&lt;/span&gt;:&lt;span class=&quot;nv&quot;&gt;$FTP_PASSWORD&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
 --ftp-create-dirs -T &lt;span class=&quot;o&quot;&gt;{}&lt;/span&gt; ftp://my_website.com/public_html/&lt;span class=&quot;o&quot;&gt;{}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
 &lt;p&gt;In case you are unsure, this will change the context to the site directory, find
 all files and upload them to the public_html directory of the host using curl.&lt;/p&gt;
 
-&lt;h2&gt;Content with Prose.io.&lt;/h2&gt;
-
-&lt;p&gt;As I said before, my friend is not a technical user. I didn&amp;#39;t expect her to
+&lt;h2 id=&quot;content-with-proseio&quot;&gt;Content with Prose.io.&lt;/h2&gt;
+&lt;p&gt;As I said before, my friend is not a technical user. I didn’t expect her to
 open a text editor and use Markdown (though it is quite easy) just to add new
 content to her site. Using &lt;a href=&quot;http://prose.io&quot;&gt;Prose.io&lt;/a&gt;, she can easily add
 images, blog posts, or any other content, without having to play around with git
@@ -337,19 +338,19 @@ investigating for myself.&lt;/p&gt;
 
 &lt;p&gt;As far as scripting languages go, I encountered Python first, and I loved it for its simplicity. Very few languages are
 as readable and make expressing complicated ideas easy. At least, at first. Anyway, I never bothered with Ruby seriously.
-It didn&amp;#39;t seem that there was anything it offered that Python didn&amp;#39;t. And I already knew Python pretty well. Overall,
+It didn’t seem that there was anything it offered that Python didn’t. And I already knew Python pretty well. Overall,
 it seemed that Python was used for any number of things: data science, SysOps, computer vision. There seemed to be no
 reason to spend time learning a new language when I could just become more proficient in the one I already knew.&lt;/p&gt;
 
-&lt;p&gt;Still, something about Rails struck a chord with me. It&amp;#39;s such an enormous thing to learn, yet people swear by it.
+&lt;p&gt;Still, something about Rails struck a chord with me. It’s such an enormous thing to learn, yet people swear by it.
 Today, after hours of messing around with the awesome &lt;a href=&quot;https://overtone.github.io&quot;&gt;Overtone&lt;/a&gt; library, I decided to take
-a break from Clojure for the day and try something else. I looked up Michael Hartl&amp;#39;s well-known
-&lt;a href=&quot;https://www.railstutorial.org&quot;&gt;Rails tutorial&lt;/a&gt;. I&amp;#39;m only through two chapters, but even so, I think I get it.&lt;/p&gt;
+a break from Clojure for the day and try something else. I looked up Michael Hartl’s well-known
+&lt;a href=&quot;https://www.railstutorial.org&quot;&gt;Rails tutorial&lt;/a&gt;. I’m only through two chapters, but even so, I think I get it.&lt;/p&gt;
 
-&lt;p&gt;Rails is big, but it is also powerful. Without the scaffolding, it would be a beast to wrap one&amp;#39;s brain around. Either way,
-the way it is structured is fantastic. Even after a few hours, what I&amp;#39;ve learned just makes sense.&lt;/p&gt;
+&lt;p&gt;Rails is big, but it is also powerful. Without the scaffolding, it would be a beast to wrap one’s brain around. Either way,
+the way it is structured is fantastic. Even after a few hours, what I’ve learned just makes sense.&lt;/p&gt;
 
-&lt;p&gt;I&amp;#39;m really excited to learn more. But that&amp;#39;s all for today!&lt;/p&gt;
+&lt;p&gt;I’m really excited to learn more. But that’s all for today!&lt;/p&gt;
 </content>
  </entry>
  
@@ -361,8 +362,8 @@ the way it is structured is fantastic. Even after a few hours, what I&amp;#39;ve
    <content type="html">&lt;p&gt;About a year back, I took a programming languages class. I think it was a
 pretty standard course: boot camp style introduction to several languages
 across several paradigms. I found two things interesting. The first was formal
-grammars. I&amp;#39;d never thought of languages in that regard. Even when studying
-natural languages (I&amp;#39;ve taken a bit of Spanish and Arabic), I didn&amp;#39;t think
+grammars. I’d never thought of languages in that regard. Even when studying
+natural languages (I’ve taken a bit of Spanish and Arabic), I didn’t think
 of them in terms of the formal grammars that structured the language. Anyway,
 I thought it was really interesting that you could describe languages in
 such a structured, unambiguous way.&lt;/p&gt;
@@ -376,21 +377,20 @@ actually tried to solve problems was often focused on how to structure your
 code to attack a problem.&lt;/p&gt;
 
 &lt;p&gt;The thing I found interesting about Haskell, Common Lisp, and now Clojure,
-was that you don&amp;#39;t focus on the actual data you have to deal with. This is
+was that you don’t focus on the actual data you have to deal with. This is
 less true with Haskell, due to its rigid but powerful type system. With Lisps,
 data and code are one in the same. And when dealing with collections, it
-doesn&amp;#39;t matter if you&amp;#39;re dealing with a hash map or a list. It&amp;#39;s liberating.&lt;/p&gt;
+doesn’t matter if you’re dealing with a hash map or a list. It’s liberating.&lt;/p&gt;
 
-&lt;p&gt;I&amp;#39;m really focusing on learning Clojure. I think it will be a powerful
-complement to Ruby and Python. There&amp;#39;s also the possibility that it will be
+&lt;p&gt;I’m really focusing on learning Clojure. I think it will be a powerful
+complement to Ruby and Python. There’s also the possibility that it will be
 the only language I need to use, as you can target the JVM, CLR, browsers,
 mobile, etc. It just feels like a more powerful tool.&lt;/p&gt;
 
-&lt;h3&gt;Edits&lt;/h3&gt;
-
+&lt;h3 id=&quot;edits&quot;&gt;Edits&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;Meant CLR, not CLI. It&amp;#39;s a runtime, not an interface (or whatever else &amp;#39;I&amp;#39; could stand for).&lt;/li&gt;
-&lt;li&gt;Note: a bunch of things I&amp;#39;ve said are probably misinformed. I&amp;#39;m learning here...&lt;/li&gt;
+  &lt;li&gt;Meant CLR, not CLI. It’s a runtime, not an interface (or whatever else ‘I’ could stand for).&lt;/li&gt;
+  &lt;li&gt;Note: a bunch of things I’ve said are probably misinformed. I’m learning here…&lt;/li&gt;
 &lt;/ul&gt;
 </content>
  </entry>

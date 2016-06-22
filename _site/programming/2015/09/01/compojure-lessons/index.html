@@ -40,7 +40,7 @@
 <!-- Toggleable sidebar -->
 <div class="sidebar" id="sidebar">
   <div class="sidebar-item">
-    <p>I'm a Baltimore-based software developer. I love programming in Ruby and Python mainly, though I always try to learn new skills.</p>
+    <p>I'm a Baltimore-based software developer. I love programming Clojure and Python mainly, though I always try to learn new skills.</p>
   </div>
 
   <nav class="sidebar-nav">
@@ -72,18 +72,22 @@
     
       
         
+      
+    
+      
+        
           <a class="sidebar-nav-item" href="/projects/">Projects</a>
         
       
     
-    <a class="sidebar-nav-item" href="https://twitter.com/@_jneal_">Twitter</a>
+    <a class="sidebar-nav-item" href="https://twitter.com/@waiting_hissing">Twitter</a>
     <a class="sidebar-nav-item" href="https://github.com/sdroadie">Github</a>
     <a class="sidebar-nav-item" href="mailto:jneal1992@gmail.com">Email</a>
   </nav>
 
   <div class="sidebar-item">
     <p>
-      &copy; 2015. All rights reserved.
+      &copy; 2016. All rights reserved.
     </p>
   </div>
 </div>
@@ -96,6 +100,7 @@
         <div class="container">
           <h3 class="masthead-title">
             <a href="/" title="Home">Jeremy Neal</a>
+	    &mdash;
             <small>Software Developer</small>
           </h3>
         </div>
@@ -105,94 +110,106 @@
         <div class="post">
   <h1 class="post-title">Compojure Lessons</h1>
   <span class="post-date">01 Sep 2015</span>
-  <p>I recently had the opportunity to migrate a codebase for a work project from NodeJS and React to Clojure and Clojurescript. I&#39;ve been trying to pick up Clojure for months now, but I find it difficult without a solid project. Since I started porting our code over, I feel that I&#39;m understanding how to do things in this system at an impressive rate.</p>
+  <p>I recently had the opportunity to migrate a codebase for a work project from NodeJS and React to Clojure and Clojurescript. I’ve been trying to pick up Clojure for months now, but I find it difficult without a solid project. Since I started porting our code over, I feel that I’m understanding how to do things in this system at an impressive rate.</p>
 
-<p>That being said, I&#39;ve hit a few issues along the way that I&#39;d like to document, both for myself and for others. Some of these are specific to my tech stack, while others are likely general web stuff.</p>
+<p>That being said, I’ve hit a few issues along the way that I’d like to document, both for myself and for others. Some of these are specific to my tech stack, while others are likely general web stuff.</p>
 
-<h3>Put your 404 handler last. Always.</h3>
-
+<h3 id="put-your-404-handler-last-always">Put your 404 handler last. Always.</h3>
 <p>I spent the better part of an hour trying to figure out why I could access my index page, but not anything deeper in the app. Everything kept coming up as a 404. And not a Ring 404 page.</p>
 
 <p>My code looked a bit like this.</p>
 
-<h4>some-api.clj</h4>
-<div class="highlight"><pre><code class="language-clojure" data-lang="clojure"><span class="p">(</span><span class="kd">ns </span><span class="nv">app.some-api</span>
-    <span class="p">(</span><span class="ss">:require</span> <span class="p">[</span><span class="nv">compojure.core</span> <span class="ss">:refer</span> <span class="ss">:all</span><span class="p">]</span>
-              <span class="p">[</span><span class="nv">compojure.route</span> <span class="ss">:as</span> <span class="nv">route</span><span class="p">]</span>
-              <span class="p">[</span><span class="nv">compojure.handler</span> <span class="ss">:as</span> <span class="nv">handler</span><span class="p">]))</span>
+<h4 id="some-apiclj">some-api.clj</h4>
+<div class="language-clojure highlighter-rouge"><pre class="highlight"><code><span class="p">(</span><span class="nf">ns</span><span class="w"> </span><span class="n">app.some-api</span><span class="w">
+	</span><span class="p">(</span><span class="no">:require</span><span class="w"> </span><span class="p">[</span><span class="n">compojure.core</span><span class="w"> </span><span class="no">:refer</span><span class="w"> </span><span class="no">:all</span><span class="p">]</span><span class="w">
+    		  </span><span class="p">[</span><span class="n">compojure.route</span><span class="w"> </span><span class="no">:as</span><span class="w"> </span><span class="n">route</span><span class="p">]</span><span class="w">
+              </span><span class="p">[</span><span class="n">compojure.handler</span><span class="w"> </span><span class="no">:as</span><span class="w"> </span><span class="n">handler</span><span class="p">]))</span><span class="w">
+              
+</span><span class="p">(</span><span class="nf">defroutes</span><span class="w"> </span><span class="n">some-routes</span><span class="w">
+	</span><span class="p">(</span><span class="nf">GET</span><span class="w"> </span><span class="s">"/stuff"</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="p">{</span><span class="no">:apples</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="no">:oranges</span><span class="w"> </span><span class="mi">3</span><span class="p">}))</span><span class="w">
+    
+</span><span class="p">(</span><span class="k">def</span><span class="w"> </span><span class="n">some-api</span><span class="w">
+	</span><span class="p">(</span><span class="nf">handler/api</span><span class="w"> </span><span class="n">some-routes</span><span class="p">))</span><span class="w">
+</span></code></pre>
+</div>
 
-<span class="p">(</span><span class="nf">defroutes</span> <span class="nv">some-routes</span>
-    <span class="p">(</span><span class="nf">GET</span> <span class="s">&quot;/stuff&quot;</span> <span class="p">[]</span> <span class="p">{</span><span class="ss">:apples</span> <span class="mi">2</span> <span class="ss">:oranges</span> <span class="mi">3</span><span class="p">}))</span>
+<h4 id="interfaceclj">interface.clj</h4>
+<div class="language-clojure highlighter-rouge"><pre class="highlight"><code><span class="p">(</span><span class="nf">ns</span><span class="w"> </span><span class="n">app.interface</span><span class="w">
+	</span><span class="p">(</span><span class="no">:require</span><span class="w"> </span><span class="p">[</span><span class="n">compojure.core</span><span class="w"> </span><span class="no">:refer</span><span class="w"> </span><span class="no">:all</span><span class="p">]</span><span class="w">
+    		  </span><span class="p">[</span><span class="n">compojure.route</span><span class="w"> </span><span class="no">:as</span><span class="w"> </span><span class="n">route</span><span class="p">]</span><span class="w">
+              </span><span class="p">[</span><span class="n">compojure.handler</span><span class="w"> </span><span class="no">:as</span><span class="w"> </span><span class="n">handler</span><span class="p">]))</span><span class="w">
+              
+</span><span class="p">(</span><span class="nf">defroutes</span><span class="w"> </span><span class="n">interface-routes</span><span class="w">
+	</span><span class="p">(</span><span class="nf">GET</span><span class="w"> </span><span class="s">"/"</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="s">"Hello World!"</span><span class="p">)</span><span class="w">
+    </span><span class="p">(</span><span class="nf">route/not-found</span><span class="w"> </span><span class="s">"Not Found"</span><span class="p">))</span><span class="w">
+    
+</span><span class="p">(</span><span class="k">def</span><span class="w"> </span><span class="n">interface</span><span class="w">
+	</span><span class="p">(</span><span class="nf">handler/site</span><span class="w"> </span><span class="n">interface-routes</span><span class="p">))</span><span class="w">
+</span></code></pre>
+</div>
 
-<span class="p">(</span><span class="k">def </span><span class="nv">some-api</span>
-    <span class="p">(</span><span class="nf">handler/api</span> <span class="nv">some-routes</span><span class="p">))</span>
-</code></pre></div>
-<h4>interface.clj</h4>
-<div class="highlight"><pre><code class="language-clojure" data-lang="clojure"><span class="p">(</span><span class="kd">ns </span><span class="nv">app.interface</span>
-    <span class="p">(</span><span class="ss">:require</span> <span class="p">[</span><span class="nv">compojure.core</span> <span class="ss">:refer</span> <span class="ss">:all</span><span class="p">]</span>
-              <span class="p">[</span><span class="nv">compojure.route</span> <span class="ss">:as</span> <span class="nv">route</span><span class="p">]</span>
-              <span class="p">[</span><span class="nv">compojure.handler</span> <span class="ss">:as</span> <span class="nv">handler</span><span class="p">]))</span>
+<h4 id="handlerclj">handler.clj</h4>
+<div class="language-clojure highlighter-rouge"><pre class="highlight"><code><span class="p">(</span><span class="nf">ns</span><span class="w"> </span><span class="n">app.handler</span><span class="w">
+	</span><span class="p">(</span><span class="no">:require</span><span class="w"> </span><span class="p">[</span><span class="n">compojure.core</span><span class="w"> </span><span class="no">:refer</span><span class="w"> </span><span class="no">:all</span><span class="p">]</span><span class="w">
+    		  </span><span class="p">[</span><span class="n">compojure.route</span><span class="w"> </span><span class="no">:as</span><span class="w"> </span><span class="n">route</span><span class="p">]</span><span class="w">
+              </span><span class="p">[</span><span class="n">app.some-api</span><span class="w"> </span><span class="no">:refer</span><span class="w"> </span><span class="p">[</span><span class="n">some-api</span><span class="p">]]</span><span class="w">
+              </span><span class="p">[</span><span class="n">app.interface</span><span class="w"> </span><span class="no">:refer</span><span class="w"> </span><span class="p">[</span><span class="n">interface</span><span class="p">]]))</span><span class="w">
+              
+ </span><span class="p">(</span><span class="k">def</span><span class="w"> </span><span class="n">app</span><span class="w">
+ 	</span><span class="p">(</span><span class="nf">routes</span><span class="w"> </span><span class="n">interface</span><span class="w"> </span><span class="n">some-routes</span><span class="p">))</span><span class="w">
+</span></code></pre>
+</div>
 
-<span class="p">(</span><span class="nf">defroutes</span> <span class="nv">interface-routes</span>
-    <span class="p">(</span><span class="nf">GET</span> <span class="s">&quot;/&quot;</span> <span class="p">[]</span> <span class="s">&quot;Hello World!&quot;</span><span class="p">)</span>
-    <span class="p">(</span><span class="nf">route/not-found</span> <span class="s">&quot;Not Found&quot;</span><span class="p">))</span>
-
-<span class="p">(</span><span class="k">def </span><span class="nv">interface</span>
-    <span class="p">(</span><span class="nf">handler/site</span> <span class="nv">interface-routes</span><span class="p">))</span>
-</code></pre></div>
-<h4>handler.clj</h4>
-<div class="highlight"><pre><code class="language-clojure" data-lang="clojure"><span class="p">(</span><span class="kd">ns </span><span class="nv">app.handler</span>
-    <span class="p">(</span><span class="ss">:require</span> <span class="p">[</span><span class="nv">compojure.core</span> <span class="ss">:refer</span> <span class="ss">:all</span><span class="p">]</span>
-              <span class="p">[</span><span class="nv">compojure.route</span> <span class="ss">:as</span> <span class="nv">route</span><span class="p">]</span>
-              <span class="p">[</span><span class="nv">app.some-api</span> <span class="ss">:refer</span> <span class="p">[</span><span class="nv">some-api</span><span class="p">]]</span>
-              <span class="p">[</span><span class="nv">app.interface</span> <span class="ss">:refer</span> <span class="p">[</span><span class="nv">interface</span><span class="p">]]))</span>
-
- <span class="p">(</span><span class="k">def </span><span class="nv">app</span>
-    <span class="p">(</span><span class="nf">routes</span> <span class="nv">interface</span> <span class="nv">some-routes</span><span class="p">))</span>
-</code></pre></div>
 <p>The issue here is subtle, but obvious to the experienced developer. The 404 route is being injected into the app after the index route, but before anything else. Because routes are checked in sequence, the server checks index, fails, moves on to the 404 route, which acts as a catch-all. The fix is simple.</p>
 
-<h4>handler.clj (FIXED)</h4>
-<div class="highlight"><pre><code class="language-clojure" data-lang="clojure"><span class="p">(</span><span class="kd">ns </span><span class="nv">app.handler</span>
-<span class="nv">...</span>
-<span class="p">(</span><span class="k">def </span><span class="nv">app</span>
-    <span class="p">(</span><span class="nf">routes</span> <span class="nv">some-routes</span> <span class="nv">interface</span><span class="p">))</span>
-</code></pre></div>
-<h3>Handling raw POST data with Compojure.</h3>
+<h4 id="handlerclj-fixed">handler.clj (FIXED)</h4>
+<div class="language-clojure highlighter-rouge"><pre class="highlight"><code><span class="p">(</span><span class="nf">ns</span><span class="w"> </span><span class="n">app.handler</span><span class="w">
+</span><span class="n">...</span><span class="w">
+</span><span class="p">(</span><span class="k">def</span><span class="w"> </span><span class="n">app</span><span class="w">
+	</span><span class="p">(</span><span class="nf">routes</span><span class="w"> </span><span class="n">some-routes</span><span class="w"> </span><span class="n">interface</span><span class="p">))</span><span class="w">
+</span></code></pre>
+</div>
 
-<p>I&#39;m pretty new to Clojure. I&#39;ve only been using it at work for about two weeks. It&#39;s been a pleasant learning curve - the codebase looks quite a bit better, and is also much easier to reason about.</p>
+<h3 id="handling-raw-post-data-with-compojure">Handling raw POST data with Compojure.</h3>
+<p>I’m pretty new to Clojure. I’ve only been using it at work for about two weeks. It’s been a pleasant learning curve - the codebase looks quite a bit better, and is also much easier to reason about.</p>
 
-<p>I ran into one issue with getting raw POST data from a request using Compojure. I&#39;m not familiar with the system yet, so I try to get something to work, then look it up on StackOverflow or something.</p>
+<p>I ran into one issue with getting raw POST data from a request using Compojure. I’m not familiar with the system yet, so I try to get something to work, then look it up on StackOverflow or something.</p>
 
-<p>Looking at the docs for Compojure, it seemed that the proper way of getting the data from a request is to get the <code>:params</code> map from the request. However, due to passing raw data (I&#39;m using <a href="https://www.getpostman.com/">Postman</a> to test), this map was empty - everything was in the <code>:body</code> map. It&#39;s trivial to get the data out of this.</p>
+<p>Looking at the docs for Compojure, it seemed that the proper way of getting the data from a request is to get the <code class="highlighter-rouge">:params</code> map from the request. However, due to passing raw data (I’m using <a href="https://www.getpostman.com/">Postman</a> to test), this map was empty - everything was in the <code class="highlighter-rouge">:body</code> map. It’s trivial to get the data out of this.</p>
 
-<h4>Example</h4>
-<div class="highlight"><pre><code class="language-clojure" data-lang="clojure"><span class="p">(</span><span class="nf">POST</span> <span class="s">&quot;some-route&quot;</span> <span class="p">{</span><span class="nv">body</span> <span class="ss">:body</span><span class="p">}</span>
-      <span class="p">(</span><span class="nb">-&gt; </span><span class="p">(</span><span class="nb">slurp </span><span class="nv">body</span><span class="p">)</span> <span class="p">(</span><span class="nf">do-stuff</span><span class="p">)))</span>
-</code></pre></div>
-<h3>Clojure vectors to JDBC Arrays (and know what version of JDBC you&#39;re using).</h3>
+<h4 id="example">Example</h4>
+<div class="language-clojure highlighter-rouge"><pre class="highlight"><code><span class="p">(</span><span class="nf">POST</span><span class="w"> </span><span class="s">"some-route"</span><span class="w"> </span><span class="p">{</span><span class="n">body</span><span class="w"> </span><span class="no">:body</span><span class="p">}</span><span class="w">
+      </span><span class="p">(</span><span class="nb">-&gt;</span><span class="w"> </span><span class="p">(</span><span class="nb">slurp</span><span class="w"> </span><span class="n">body</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nf">do-stuff</span><span class="p">)))</span><span class="w">
+</span></code></pre>
+</div>
 
+<h3 id="clojure-vectors-to-jdbc-arrays-and-know-what-version-of-jdbc-youre-using">Clojure vectors to JDBC Arrays (and know what version of JDBC you’re using).</h3>
 <p>In my data set, I need to store 3D geometry data. Using Postgres, I chose to do this by serializing mesh data (vertices, faces, etc.) to JSON (which Postgres lets you store!), and turning transform Vector3s into arrays. I initially attempted to write Postgres types around arrays to ensure that these transform components could only be arrays of length 3, but this ended up being more trouble than it was worth.</p>
 
-<p>Anyway, the issue I ran into was this: going from JSON to Clojure maps was simple (using <code>clojure.data.json</code>) but inserting these Clojure data structures was an issue. Simple data types, like integers and strings, were automatically converted. Vectors were... not? I don&#39;t actually know how they were being entered into Postgres, but the server kept spitting an error at me. It was stating that the number of expressions was greater than the number of columns. I inferred this to mean that vectors weren&#39;t being converted into an acceptable form.</p>
+<p>Anyway, the issue I ran into was this: going from JSON to Clojure maps was simple (using <code class="highlighter-rouge">clojure.data.json</code>) but inserting these Clojure data structures was an issue. Simple data types, like integers and strings, were automatically converted. Vectors were… not? I don’t actually know how they were being entered into Postgres, but the server kept spitting an error at me. It was stating that the number of expressions was greater than the number of columns. I inferred this to mean that vectors weren’t being converted into an acceptable form.</p>
 
-<p>I figured out what I needed to do: translate these vectors to JDBC arrays. This process isn&#39;t as streamlined as it could be, as you need to have an active JDBC connection to do the conversion. To be efficient, you need to do this in a transaction before you actually submit your query. That feels weird. But it isn&#39;t even the problem. My problem is even simpler than that.</p>
+<p>I figured out what I needed to do: translate these vectors to JDBC arrays. This process isn’t as streamlined as it could be, as you need to have an active JDBC connection to do the conversion. To be efficient, you need to do this in a transaction before you actually submit your query. That feels weird. But it isn’t even the problem. My problem is even simpler than that.</p>
 
-<p>My vectors were storing data as doubles. Spatial coordinates need to be as specific as possible, so highest precision is preferable. To convert vectors (or any Clojure seq) to a JDBC array, you need to call <code>.createArrayOf</code>. ex. <code>(.createArrayOf conn &quot;double&quot; (into-array [...]))</code>. The problem here is a versioning one. I&#39;m using JDBCv4. All the documentation that came up when I searched for &quot;JDBC array types&quot; listed <code>double</code> as an acceptable type. However, in JDBCv4, this was deprecated in favor of the <code>float</code> type. So, my code needed to look like this: <code>(.createArrayOf conn &quot;float&quot; (into-array [...]))</code>. And this took me longer to realize than I&#39;m proud admitting.</p>
+<p>My vectors were storing data as doubles. Spatial coordinates need to be as specific as possible, so highest precision is preferable. To convert vectors (or any Clojure seq) to a JDBC array, you need to call <code class="highlighter-rouge">.createArrayOf</code>. ex. <code class="highlighter-rouge">(.createArrayOf conn "double" (into-array [...]))</code>. The problem here is a versioning one. I’m using JDBCv4. All the documentation that came up when I searched for “JDBC array types” listed <code class="highlighter-rouge">double</code> as an acceptable type. However, in JDBCv4, this was deprecated in favor of the <code class="highlighter-rouge">float</code> type. So, my code needed to look like this: <code class="highlighter-rouge">(.createArrayOf conn "float" (into-array [...]))</code>. And this took me longer to realize than I’m proud admitting.</p>
 
-<h3>Types are great.</h3>
+<h3 id="types-are-great">Types are great.</h3>
+<p>PostgreSQL does pretty strong type checking. For a current project, I’m using the <a href="https://github.com/krisajenkins/yesql">Yesql</a> to build my queries. The best part of this is that you can have casts in your queries, which makes passing data much easier. For example, I have one record type that describes a 3D mesh object. The schema is:</p>
 
-<p>PostgreSQL does pretty strong type checking. For a current project, I&#39;m using the <a href="https://github.com/krisajenkins/yesql">Yesql</a> to build my queries. The best part of this is that you can have casts in your queries, which makes passing data much easier. For example, I have one record type that describes a 3D mesh object. The schema is:</p>
-<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">mesh</span><span class="p">(</span><span class="n">mesh_id</span> <span class="nb">serial</span> <span class="k">primary</span> <span class="k">key</span><span class="p">,</span> <span class="n">name</span> <span class="nb">text</span><span class="p">,</span> <span class="n">mesh_data</span> <span class="n">json</span><span class="p">,</span> <span class="n">mesh_type</span> <span class="n">mesh_t</span><span class="p">);</span>
-</code></pre></div>
-<p>The <code>mesh_t</code> type is a simple enum type of strings representing primitive mesh types. Using casts, I can send my mesh type as a string, but have it typed in queries for safety.</p>
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">mesh</span><span class="p">(</span><span class="n">mesh_id</span> <span class="n">serial</span> <span class="k">primary</span> <span class="k">key</span><span class="p">,</span> <span class="n">name</span> <span class="n">text</span><span class="p">,</span> <span class="n">mesh_data</span> <span class="n">json</span><span class="p">,</span> <span class="n">mesh_type</span> <span class="n">mesh_t</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<p>The <code class="highlighter-rouge">mesh_t</code> type is a simple enum type of strings representing primitive mesh types. Using casts, I can send my mesh type as a string, but have it typed in queries for safety.</p>
 
 <p>An example of this would be an insert. Such a query using Yesql would look like this:</p>
-<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">mesh</span> <span class="p">(</span><span class="n">mesh_type</span><span class="p">,</span> <span class="n">mesh_data</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(:</span><span class="n">mesh_type</span><span class="p">::</span><span class="n">mesh_t</span><span class="p">,</span> <span class="p">:</span><span class="n">mesh_data</span><span class="p">,</span> <span class="p">:</span><span class="n">name</span><span class="p">);</span>
-</code></pre></div>
-<p>I&#39;ll add other bits of knowledge and wisdom as I run into them. But that&#39;s all for now.</p>
 
-  <div>If you enjoyed this post, follow me on <a href="https://twitter.com/@_jneal_">
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">mesh</span> <span class="p">(</span><span class="n">mesh_type</span><span class="p">,</span> <span class="n">mesh_data</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(:</span><span class="n">mesh_type</span><span class="p">::</span><span class="n">mesh_t</span><span class="p">,</span> <span class="p">:</span><span class="n">mesh_data</span><span class="p">,</span> <span class="p">:</span><span class="n">name</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<p>I’ll add other bits of knowledge and wisdom as I run into them. But that’s all for now.</p>
+
+  <div>If you enjoyed this post, follow me on <a href="https://twitter.com/@waiting_hissing">
       Twitter</a>!</div>
   <div class="tags">
     <span>Tags:</span>
