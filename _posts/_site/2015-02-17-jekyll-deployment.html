@@ -1,0 +1,63 @@
+<p>I like Jekyll. It’s a clean, simple piece of software that makes hosting blogs
+painless. I use it for this site, and some others as well. I just built a site
+for a friend.</p>
+
+<p>When I was building her site, the traditional route would have been to use 
+something like Wordpress or some other CMS, as she would need to edit content 
+after the fact. Alternatively, I could implement my own CMS for her. I didn’t 
+like either of these options. I really dislike Wordpress for a number of 
+reasons, and I don’t have the time to write such a complicated system, as I’m
+in my last semester of my bachelor’s. Instead, I chose to use Jekyll.</p>
+
+<p>For the most part, Jekyll was fine, aside from the user-friendliness. She’s not
+a developer, and expecting her to use the command-line would have been absurd.
+So here’s what I did to get her site up and running.</p>
+
+<h2 id="create-a-github-repo">Create a Github repo.</h2>
+<p>There’s nothing particularly private on her site, putting everything in a public
+Github repo was easiest.</p>
+
+<h2 id="deploy-with-travis-ci">Deploy with Travis CI.</h2>
+<p>This website could have been hosted on Github pages, but for particular reasons,
+I chose to host her site on Namecheap. This makes the build process more
+complicated. On the <a href="http://jekyllrb.com/docs/deployment-methods/">Jekyll</a> site,
+they list a number of ways of deploying. Since I didn’t want her to have to
+touch any of the tools, I chose to deploy with <a href="http://travis-ci.org">Travis CI</a>.</p>
+
+<p>The setup for this was pretty easy, but I ran into a few problems that might not
+be immediately straightforward to solve. First, you need to hook up the repo to
+Travis. This is covered in a number of places.</p>
+
+<p>I wanted to upload this site over FTP, and this required using a username and
+password. I was immediately worried that this would be sitting in my repo, which
+is dangerous! However, Travis is awesome and provides a way of encrypting your
+credentials for deployment.</p>
+
+<p>In my case, I needed to include my FTP username and password. After installing
+the Travis gem, running the following commands encrypts your keys and stores
+them in .travis.yml, allowing you to call them without exposing them:</p>
+
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code>travis encrypt --add <span class="nv">FTP_USER</span><span class="o">=</span>ftp_username
+travis encrypt --add <span class="nv">FTP_PASSWORD</span><span class="o">=</span>FTP_PASSWORD
+</code></pre>
+</div>
+
+<p>Within your build instructions, you can call these values by name. I did just
+this to deploy the _site directory to the web host.</p>
+
+<p>In the after_success section of .travis.yml, add the following command:</p>
+
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="nb">cd</span> ./_site <span class="o">&amp;&amp;</span> find . -type f -exec curl -u <span class="nv">$FTP_SUSER</span>:<span class="nv">$FTP_PASSWORD</span> <span class="se">\</span>
+--ftp-create-dirs -T <span class="o">{}</span> ftp://my_website.com/public_html/<span class="o">{}</span>
+</code></pre>
+</div>
+
+<p>In case you are unsure, this will change the context to the site directory, find
+all files and upload them to the public_html directory of the host using curl.</p>
+
+<h2 id="content-with-proseio">Content with Prose.io.</h2>
+<p>As I said before, my friend is not a technical user. I didn’t expect her to
+open a text editor and use Markdown (though it is quite easy) just to add new
+content to her site. Using <a href="http://prose.io">Prose.io</a>, she can easily add
+images, blog posts, or any other content, without having to play around with git
+commands, text editors, etc.</p>
