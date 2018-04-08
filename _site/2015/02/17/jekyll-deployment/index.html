@@ -80,14 +80,14 @@
         
       
     
-    <a class="sidebar-nav-item" href="https://twitter.com/@waiting_hissing">Twitter</a>
+    <a class="sidebar-nav-item" href="https://twitter.com/@radglob">Twitter</a>
     <a class="sidebar-nav-item" href="https://github.com/sdroadie">Github</a>
     <a class="sidebar-nav-item" href="mailto:jneal1992@gmail.com">Email</a>
   </nav>
 
   <div class="sidebar-item">
     <p>
-      &copy; 2016. All rights reserved.
+      &copy; 2018. All rights reserved.
     </p>
   </div>
 </div>
@@ -149,20 +149,18 @@ credentials for deployment.</p>
 the Travis gem, running the following commands encrypts your keys and stores
 them in .travis.yml, allowing you to call them without exposing them:</p>
 
-<div class="language-sh highlighter-rouge"><pre class="highlight"><code>travis encrypt --add <span class="nv">FTP_USER</span><span class="o">=</span>ftp_username
-travis encrypt --add <span class="nv">FTP_PASSWORD</span><span class="o">=</span>FTP_PASSWORD
-</code></pre>
-</div>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>travis encrypt <span class="nt">--add</span> <span class="nv">FTP_USER</span><span class="o">=</span>ftp_username
+travis encrypt <span class="nt">--add</span> <span class="nv">FTP_PASSWORD</span><span class="o">=</span>FTP_PASSWORD
+</code></pre></div></div>
 
 <p>Within your build instructions, you can call these values by name. I did just
 this to deploy the _site directory to the web host.</p>
 
 <p>In the after_success section of .travis.yml, add the following command:</p>
 
-<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="nb">cd</span> ./_site <span class="o">&amp;&amp;</span> find . -type f -exec curl -u <span class="nv">$FTP_SUSER</span>:<span class="nv">$FTP_PASSWORD</span> <span class="se">\</span>
---ftp-create-dirs -T <span class="o">{}</span> ftp://my_website.com/public_html/<span class="o">{}</span>
-</code></pre>
-</div>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ./_site <span class="o">&amp;&amp;</span> find <span class="nb">.</span> <span class="nt">-type</span> f <span class="nt">-exec</span> curl <span class="nt">-u</span> <span class="nv">$FTP_SUSER</span>:<span class="nv">$FTP_PASSWORD</span> <span class="se">\</span>
+<span class="nt">--ftp-create-dirs</span> <span class="nt">-T</span> <span class="o">{}</span> ftp://my_website.com/public_html/<span class="o">{}</span>
+</code></pre></div></div>
 
 <p>In case you are unsure, this will change the context to the site directory, find
 all files and upload them to the public_html directory of the host using curl.</p>
@@ -174,7 +172,7 @@ content to her site. Using <a href="http://prose.io">Prose.io</a>, she can easil
 images, blog posts, or any other content, without having to play around with git
 commands, text editors, etc.</p>
 
-  <div>If you enjoyed this post, follow me on <a href="https://twitter.com/@waiting_hissing">
+  <div>If you enjoyed this post, follow me on <a href="https://twitter.com/@radglob">
       Twitter</a>!</div>
   <div class="tags">
     <span>Tags:</span>
