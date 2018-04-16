@@ -1,5 +1,5 @@
 # Dependencies
-gems:                [jekyll-paginate]
+plugins:                [jekyll-paginate]
 
 # Permalinks
 #
@@ -11,7 +11,6 @@ title:               Jeremy Neal
 tagline:             'Software Developer'
 description:         "I'm a Baltimore-based software developer. I love programming Clojure and Python mainly, though I always try to learn new skills."
 url:                 http://sdroadie.github.io
-baseurl:             /
 paginate:            5
 paginate_path:      '/page-:num/'
 
