@@ -110,7 +110,10 @@
         <div class="post">
   <h1 class="post-title">Deploying Jekyll with Travis CI</h1>
   <span class="post-date">17 Feb 2015</span>
-  <p>I like Jekyll. It’s a clean, simple piece of software that makes hosting blogs
+  <p><strong>Edited on 16 April 2018. Thanks to <a href="https://twitter.com/kellertuer">@kellertuer</a>
+for pointing out the error in the <code class="highlighter-rouge">find</code> command.</strong></p>
+
+<p>I like Jekyll. It’s a clean, simple piece of software that makes hosting blogs
 painless. I use it for this site, and some others as well. I just built a site
 for a friend.</p>
 
@@ -158,8 +161,8 @@ this to deploy the _site directory to the web host.</p>
 
 <p>In the after_success section of .travis.yml, add the following command:</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ./_site <span class="o">&amp;&amp;</span> find <span class="nb">.</span> <span class="nt">-type</span> f <span class="nt">-exec</span> curl <span class="nt">-u</span> <span class="nv">$FTP_SUSER</span>:<span class="nv">$FTP_PASSWORD</span> <span class="se">\</span>
-<span class="nt">--ftp-create-dirs</span> <span class="nt">-T</span> <span class="o">{}</span> ftp://my_website.com/public_html/<span class="o">{}</span>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ./_site <span class="o">&amp;&amp;</span> find <span class="nb">.</span> <span class="nt">-type</span> f <span class="nt">-exec</span> curl <span class="nt">-u</span> <span class="nv">$FTP_USER</span>:<span class="nv">$FTP_PASSWORD</span> <span class="se">\</span>
+<span class="nt">--ftp-create-dirs</span> <span class="nt">-T</span> <span class="o">{}</span> ftp://my_website.com/public_html/<span class="o">{}</span> <span class="se">\;</span>
 </code></pre></div></div>
 
 <p>In case you are unsure, this will change the context to the site directory, find

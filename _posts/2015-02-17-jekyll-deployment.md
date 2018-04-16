@@ -5,6 +5,8 @@ tags: "jekyll, ruby, travis, ci"
 published: true
 ---
 
+**Edited on 16 April 2018. Thanks to [@kellertuer](https://twitter.com/kellertuer)
+for pointing out the error in the `find` command.**
 
 
 I like Jekyll. It's a clean, simple piece of software that makes hosting blogs
@@ -57,8 +59,8 @@ this to deploy the _site directory to the web host.
 In the after_success section of .travis.yml, add the following command:
 
 ```sh
-cd ./_site && find . -type f -exec curl -u $FTP_SUSER:$FTP_PASSWORD \
---ftp-create-dirs -T {} ftp://my_website.com/public_html/{}
+cd ./_site && find . -type f -exec curl -u $FTP_USER:$FTP_PASSWORD \
+--ftp-create-dirs -T {} ftp://my_website.com/public_html/{} \;
 ```
 
 In case you are unsure, this will change the context to the site directory, find
