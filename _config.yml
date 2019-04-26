@@ -9,7 +9,7 @@ permalink:           pretty
 # Setup
 title:               Jeremy Neal
 tagline:             'Software Developer'
-description:         "I'm a Baltimore-based software developer. I love programming Clojure and Python mainly, though I always try to learn new skills."
+description:         "I'm a Baltimore-based software developer. I like functional programming languages, being a naysayer to 'revolutionary technologies' and baking bread."
 url:                 https://sdroadie.github.io
 paginate:            5
 paginate_path:      '/page-:num/'

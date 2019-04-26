@@ -31,7 +31,7 @@
 </head>
 
 
-  <body>
+  <body class="theme-base-0d">
 
     <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
      styles, `#sidebar-checkbox` for behavior. -->
@@ -40,7 +40,7 @@
 <!-- Toggleable sidebar -->
 <div class="sidebar" id="sidebar">
   <div class="sidebar-item">
-    <p>I'm a Baltimore-based software developer. I love programming Clojure and Python mainly, though I always try to learn new skills.</p>
+    <p>I'm a Baltimore-based software developer. I like functional programming languages, being a naysayer to 'revolutionary technologies' and baking bread.</p>
   </div>
 
   <nav class="sidebar-nav">
@@ -74,12 +74,6 @@
         
       
     
-      
-        
-          <a class="sidebar-nav-item" href="/projects/">Projects</a>
-        
-      
-    
     <a class="sidebar-nav-item" href="https://twitter.com/@radglob">Twitter</a>
     <a class="sidebar-nav-item" href="https://github.com/sdroadie">Github</a>
     <a class="sidebar-nav-item" href="mailto:jneal1992@gmail.com">Email</a>
@@ -87,7 +81,7 @@
 
   <div class="sidebar-item">
     <p>
-      &copy; 2018. All rights reserved.
+      &copy; 2019. All rights reserved.
     </p>
   </div>
 </div>
@@ -138,7 +132,7 @@ seen on the Flask homepage is as simple as this:</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
 <span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
 
-<span class="nd">@app.route</span><span class="p">(</span><span class="s">"/"</span><span class="p">)</span>
+<span class="o">@</span><span class="n">app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s">"/"</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">hello</span><span class="p">():</span>
     <span class="k">return</span> <span class="s">"Hello World!"</span>
 
