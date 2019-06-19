@@ -11,7 +11,7 @@
 
   <title>
     
-      Jeremy Neal &middot; Software Developer
+      Little bash thing I learned. &middot; Jeremy Neal
     
   </title>
 
@@ -101,148 +101,54 @@
       </div>
 
       <div class="container content">
-        <div class="posts">
-  
-    <div class="post">
-    <h1 class="post-title">
-      <a href="/app%20design/2015/02/24/todo-idea/">
-        A better to-do app.
-      </a>
-    </h1>
+        <div class="post">
+  <h1 class="post-title">Little bash thing I learned.</h1>
+  <span class="post-date">19 Jun 2019</span>
+  <p>I never learned <code class="highlighter-rouge">bash</code> all that well because I never really needed to. By
+the time I was digging into a lot of command-line stuff, projects like
+<a href="https://ohmyz.sh/">oh-my-zsh</a> were fairly popular, so a lot of command-line
+stuff was already around for me.</p>
 
-    <span class="post-date">24 Feb 2015</span>
+<p>I’ve learned and forgotten bits of <code class="highlighter-rouge">sed</code> and <code class="highlighter-rouge">awk</code> here and there. They’re useful,
+but often more trouble for me to use and remember than it is to learn on other tools.</p>
 
-    <p><p>I’ve been learning Clojure lately. It does a lot of things right as a languages.
-But I don’t think we should stop there. The same principles that make a good
-language could be applied to application design.</p>
+<p>That said, I do try to add little aliases here and there for myself. I’ve been trying
+to keep on top of my daily work by logging things. I use a pretty simple format for my
+log file names: YYYY-MM-DD.md. I also use tmux heavily.</p>
 
-</p>
-    
-    <div>
-      Tags:
-      <ul class="tag-list">
-        
-          <li>app idea</li>
-        
-      </ul>
-    </div>
+<p>When I initially wrote my <code class="highlighter-rouge">log</code> alias, it looked like this:</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">alias </span><span class="nv">log</span><span class="o">=</span>vim <span class="sb">`</span><span class="nb">date</span> +%Y-m-d<span class="sb">`</span>.md
+</code></pre></div></div>
 
-    <br />
+<p>This worked pretty well at first. But I started to notice an issue when running this alias
+in a tmux session that was a few days old. The date on the file would be wrong. It would
+be set to the date that the tmux session started, not when I ran the command.</p>
 
-    <span class="read-more"><a href="/app%20design/2015/02/24/todo-idea/">Read More</a></span>
+<p>To fix this, I changed the alias to</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">alias </span><span class="nv">log</span><span class="o">=</span>vim <span class="k">$(</span><span class="nb">date</span> +%Y-%m-%d<span class="k">)</span>.md
+</code></pre></div></div>
+
+<p>I don’t really know the
+difference between the two expansions, but I’ve only really leaned on them at runtime. This might
+be obvious to someone who knows how bash works, but it was interesting to me.</p>
+
+  <div>If you enjoyed this post, follow me on <a href="https://twitter.com/@radglob">
+      Twitter</a>!</div>
+  <div class="tags">
+    <span>Tags:</span>
+    <ul class="tag-list">
+      
+        <li>bash</li>
+      
+    </ul>
   </div>
-  
-    <div class="post">
-    <h1 class="post-title">
-      <a href="/2015/02/17/jekyll-deployment/">
-        Deploying Jekyll with Travis CI
-      </a>
-    </h1>
-
-    <span class="post-date">17 Feb 2015</span>
-
-    <p><p><strong>Edited on 16 April 2018. Thanks to <a href="https://twitter.com/kellertuer">@kellertuer</a>
-for pointing out the error in the <code class="highlighter-rouge">find</code> command.</strong></p>
-
-</p>
-    
-    <div>
-      Tags:
-      <ul class="tag-list">
-        
-          <li>jekyll,</li>
-        
-          <li>ruby,</li>
-        
-          <li>travis,</li>
-        
-          <li>ci</li>
-        
-      </ul>
-    </div>
-
-    <br />
-
-    <span class="read-more"><a href="/2015/02/17/jekyll-deployment/">Read More</a></span>
-  </div>
-  
-    <div class="post">
-    <h1 class="post-title">
-      <a href="/ruby/2015/01/11/learning-rails/">
-        Learning Rails, Day 1
-      </a>
-    </h1>
-
-    <span class="post-date">11 Jan 2015</span>
-
-    <p><p>I noticed a trend. Clojure is awesome. And most Clojurists seem to use Rails. As such, I thought it would be worth
-investigating for myself.</p>
-
-</p>
-    
-    <div>
-      Tags:
-      <ul class="tag-list">
-        
-          <li>ruby</li>
-        
-          <li>rails</li>
-        
-      </ul>
-    </div>
-
-    <br />
-
-    <span class="read-more"><a href="/ruby/2015/01/11/learning-rails/">Read More</a></span>
-  </div>
-  
-    <div class="post">
-    <h1 class="post-title">
-      <a href="/clojure/2015/01/11/learning-clojure/">
-        Learning Clojure
-      </a>
-    </h1>
-
-    <span class="post-date">11 Jan 2015</span>
-
-    <p><p>About a year back, I took a programming languages class. I think it was a
-pretty standard course: boot camp style introduction to several languages
-across several paradigms. I found two things interesting. The first was formal
-grammars. I’d never thought of languages in that regard. Even when studying
-natural languages (I’ve taken a bit of Spanish and Arabic), I didn’t think
-of them in terms of the formal grammars that structured the language. Anyway,
-I thought it was really interesting that you could describe languages in
-such a structured, unambiguous way.</p>
-
-</p>
-    
-    <div>
-      Tags:
-      <ul class="tag-list">
-        
-          <li>clojure</li>
-        
-          <li>functional programming</li>
-        
-      </ul>
-    </div>
-
-    <br />
-
-    <span class="read-more"><a href="/clojure/2015/01/11/learning-clojure/">Read More</a></span>
-  </div>
-  
 </div>
 
-<div class="pagination">
-  
-  <a href="/" class="previous">Previous</a>
-  
-  <span class="page_number">2 of 2</span>
-  
-  <span class="next">Next</span>
-  
-</div>
+
+
+
+
+
 
 
       </div>

@@ -4,13 +4,48 @@
  <title>Jeremy Neal</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2019-04-26T09:25:57-04:00</updated>
+ <updated>2019-06-19T15:10:49-04:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Jeremy Neal</name>
    <email>jneal1992@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Little bash thing I learned.</title>
+   <link href="http://localhost:4000/2019/06/19/little-bash-thing/"/>
+   <updated>2019-06-19T00:00:00-04:00</updated>
+   <id>http://localhost:4000/2019/06/19/little-bash-thing</id>
+   <content type="html">&lt;p&gt;I never learned &lt;code class=&quot;highlighter-rouge&quot;&gt;bash&lt;/code&gt; all that well because I never really needed to. By
+the time I was digging into a lot of command-line stuff, projects like
+&lt;a href=&quot;https://ohmyz.sh/&quot;&gt;oh-my-zsh&lt;/a&gt; were fairly popular, so a lot of command-line
+stuff was already around for me.&lt;/p&gt;
+
+&lt;p&gt;I’ve learned and forgotten bits of &lt;code class=&quot;highlighter-rouge&quot;&gt;sed&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;awk&lt;/code&gt; here and there. They’re useful,
+but often more trouble for me to use and remember than it is to learn on other tools.&lt;/p&gt;
+
+&lt;p&gt;That said, I do try to add little aliases here and there for myself. I’ve been trying
+to keep on top of my daily work by logging things. I use a pretty simple format for my
+log file names: YYYY-MM-DD.md. I also use tmux heavily.&lt;/p&gt;
+
+&lt;p&gt;When I initially wrote my &lt;code class=&quot;highlighter-rouge&quot;&gt;log&lt;/code&gt; alias, it looked like this:&lt;/p&gt;
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;alias &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;vim &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;date&lt;/span&gt; +%Y-m-d&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;.md
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This worked pretty well at first. But I started to notice an issue when running this alias
+in a tmux session that was a few days old. The date on the file would be wrong. It would
+be set to the date that the tmux session started, not when I ran the command.&lt;/p&gt;
+
+&lt;p&gt;To fix this, I changed the alias to&lt;/p&gt;
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;alias &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;vim &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;date&lt;/span&gt; +%Y-%m-%d&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;.md
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;I don’t really know the
+difference between the two expansions, but I’ve only really leaned on them at runtime. This might
+be obvious to someone who knows how bash works, but it was interesting to me.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Building chatbots with Hedwig</title>
