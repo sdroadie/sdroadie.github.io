@@ -4,13 +4,48 @@
  <title>Jeremy Neal</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2019-06-19T15:10:49-04:00</updated>
+ <updated>2019-07-15T10:27:28-04:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Jeremy Neal</name>
    <email>jneal1992@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Migrating Ecto references without `execute`.</title>
+   <link href="http://localhost:4000/2019/07/15/modifying-ecto-references/"/>
+   <updated>2019-07-15T00:00:00-04:00</updated>
+   <id>http://localhost:4000/2019/07/15/modifying-ecto-references</id>
+   <content type="html">&lt;p&gt;I made a mistake on an Ecto migration, forgetting to add an &lt;code class=&quot;highlighter-rouge&quot;&gt;on_delete&lt;/code&gt; declaration.
+This went unnoticed for a while, until someone in the admin panel of the application
+noticed that attempts to delete a certain record kept throwing 500 errors back.&lt;/p&gt;
+
+&lt;p&gt;I needed to update the &lt;code class=&quot;highlighter-rouge&quot;&gt;references&lt;/code&gt; part of the schema, but altering the table with &lt;code class=&quot;highlighter-rouge&quot;&gt;modify&lt;/code&gt;
+would fail since there was an existing constraint. I needed to clear this constraint first.&lt;/p&gt;
+
+&lt;p&gt;Most suggestions I saw online to fix this suggested using the &lt;code class=&quot;highlighter-rouge&quot;&gt;execute&lt;/code&gt; function. While
+this will do the trick, I try to avoid using raw SQL as much as possible. Turns out, you
+can get the same effect using &lt;code class=&quot;highlighter-rouge&quot;&gt;drop constraint&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Assume you have a table called &lt;code class=&quot;highlighter-rouge&quot;&gt;products&lt;/code&gt; with a foreign key to another table called
+&lt;code class=&quot;highlighter-rouge&quot;&gt;manufacturers&lt;/code&gt;. The constraint might have a name like &lt;code class=&quot;highlighter-rouge&quot;&gt;products_manufacturers_id_fkey&lt;/code&gt;.
+You can remove this in one of (at least) two ways.&lt;/p&gt;
+
+&lt;p&gt;First, with &lt;code class=&quot;highlighter-rouge&quot;&gt;execute&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;language-elixir highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;execute&lt;/span&gt; &lt;span class=&quot;sd&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;ALTER TABLE products DROP CONSTRAINT products_manufacturers_id_fkey&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;But you can do the same with &lt;code class=&quot;highlighter-rouge&quot;&gt;drop constraint&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;language-elixir highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;drop&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;constraint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sd&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;products&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sd&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;products_manufacturers_id_fkey&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The second one tripped me up at first, because documentation for &lt;code class=&quot;highlighter-rouge&quot;&gt;constraint/2&lt;/code&gt; don’t have
+this kind of repetition between the table and the constraint key.&lt;/p&gt;
+
+&lt;p&gt;Hopefully this helps someone else.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Little bash thing I learned.</title>
@@ -49,9 +84,9 @@ be obvious to someone who knows how bash works, but it was interesting to me.&lt
  
  <entry>
    <title>Building chatbots with Hedwig</title>
-   <link href="http://localhost:4000/2018/04/25/building-chatbots-with-hedwig/"/>
-   <updated>2018-04-25T00:00:00-04:00</updated>
-   <id>http://localhost:4000/2018/04/25/building-chatbots-with-hedwig</id>
+   <link href="http://localhost:4000/2019/04/25/building-chatbots-with-hedwig/"/>
+   <updated>2019-04-25T00:00:00-04:00</updated>
+   <id>http://localhost:4000/2019/04/25/building-chatbots-with-hedwig</id>
    <content type="html">&lt;p&gt;Chatbots are so 2018. I think they were definitely a fad which has seemed to die down. That said,
 they’re still pretty useful.&lt;/p&gt;
 
